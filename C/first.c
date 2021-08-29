@@ -23,6 +23,9 @@ int main(void)
 
     printf("\ntaste = %d\n", tast);
 
+    printf("\n Hello,\
+    world\n");
+
     return 0;
 
 
