@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 int radius, area;
-int taste();
+int tencount();
+int printTenX();
 
 int main(void) 
 {
@@ -12,29 +13,61 @@ int main(void)
     printf("%d\n", radius);
     printf( "\n\nArea = %d\n", area );
 
-    int x, y;
+    int x, y, z;
 
     for ( x= 0; x < 10; x++, printf( "\n"))
         for (y = 0; y < 10; y++ )
             printf("X");
 
     int tast;
-    tast = taste();
+    tast = tencount();
 
-    printf("\ntaste = %d\n", tast);
+    printf("\ntencount = %d\n", tast);
 
     printf("\n Hello,\
     world\n");
+    z=0;
+    do {
+        puts("run printTenX?: 1=yes anything else this lasts forever ");
+        scanf("%d", &z);
+    } while (z != 1);
+    
+    
 
+    
+    printTenX();
     return 0;
 
 
 }
 
-int taste(){
+int tencount(){
     int test;
 
     test = 10;
 
     return test;
 }
+
+int printTenX(){
+    int x;
+    for (x=0;x < 10; x++) printf("\nx: %d" , x); 
+    puts("");
+}
+
+/* 
+\a bell
+\b backspace
+\n newline
+\t tab
+\\ backslash
+\? question mark
+\' single quotation
+
+int printf()
+n the character n
+\n newline
+\" the double quotation
+" start or end of string "
+
+*/
