@@ -1,6 +1,11 @@
 /* Program to tell the size of the C variable type in bytes */
 #include <stdio.h>
 
+int intarray[100];
+float floatarray[100];
+double doublearray[100];
+long longarray[100][100][100];
+
 int main()
 {
     printf( "\nA char is            %lu bytes" , sizeof( char ));
@@ -13,14 +18,23 @@ int main()
     printf( "\nAn unsigned long is  %lu bytes" , sizeof( unsigned long ));
     printf( "\nA float is           %lu bytes" , sizeof( float ));
     printf( "\nA double is          %lu bytes" , sizeof( double ));
-    printf( "\n");
+    printf( "\n\nArrays next\n");
+
+    //display the sizes of arrays
+    printf("\nSize of intarray = %d bytes", sizeof(intarray));
+    printf("\nSize of floatarray = %d bytes", sizeof(floatarray));
+    printf("\nSize of doublearray = %d bytes", sizeof(doublearray));
+    printf("\nSize of longarray = %d bytes", sizeof(longarray));
+    printf("\n\nCharacter listings\n\n");
+
+    //displays character stuff (forgot where i found this)
     int ch;
 
     for( ch = 75 ; ch <= 100; ch++ ) {
         printf("ASCII value = %d, Character = %c\n", ch , ch );
     }
 
-    printf( "\n");
+    printf( "\n\n");
     printf ("Integers: %i %u \n", -3456, 3456);
     printf ("Characters: %c %c \n", 'z', 80);
     printf ("Decimals: %d %ld\n", 1997, 32000L);

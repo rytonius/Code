@@ -147,7 +147,7 @@ void display_report()
             printf("\nincome in year %d is %ld", x, income[ctr]);    
         }
         
-        grand_ytotal += year_average;    
+        grand_ytotal += year_average;     
     }
 
 
