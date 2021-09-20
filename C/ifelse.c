@@ -7,7 +7,7 @@ int main(void)
 {
     // input the two values to be tested
 
-    printf("\nInput an integer value for x and y seperate with /: ");
+    printf("\nInput an integer value for x and y separate with /: ");
     scanf("%d/%d", &x, &y);
     printf("\nx: %d\ny: %d\n", x, y);
 
