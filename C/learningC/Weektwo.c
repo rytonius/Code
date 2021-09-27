@@ -173,10 +173,10 @@ void display_report()
             if(list[y].month == x)
             {
                 fprintf(stdout, "\n\t%s %s %s %ld", list[y].fname,
-                                                list[y].lname,
-                                                list[y].phone,
-                                                list[y].income);
-                month_total += list[y].income;
+                                                    list[y].lname,
+                                                    list[y].phone,
+                                                    list[y].income);
+                                                    month_total += list[y].income;
             }
         }
         fprintf(stdout, "\nTotal for month %d is %ld",x,month_total);
