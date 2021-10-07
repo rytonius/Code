@@ -17,10 +17,19 @@ written in ubuntu and I have no idea what i'm doing.
 
 #include <SDL2/SDL.h>
 
+
 //DEFINE
-#define SCREEN_WIDTH 1280
-#define SCREEN_HEIGHT 800
+#define SCREEN_WIDTH    1280
+#define SCREEN_HEIGHT   720
 #define CREATE_WINDOW_UFLAGS 0
+
+#define NUM_COLS        80
+#define NUM_ROWS        45
+
+#define internal static
+#define local_persist static
+#define global_variable static
+
 
 //TypeDef
 typedef uint8_t     u8;
@@ -29,6 +38,8 @@ typedef uint64_t    u64;
 typedef int32_t     i32;
 typedef int64_t     i64;
 
+//Downloaded from https://github.com/PeteyCodes/DarkCaverns/
+#include "pt_console.c"
 
 //GLOBAL VARIABLES
 
@@ -54,7 +65,8 @@ int main()
     SDL_Texture *screen = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ABGR8888,
                                             SDL_TEXTUREACCESS_STREAMING, SCREEN_WIDTH, SCREEN_HEIGHT);
 
-    SDL_LoadBMP("");
+    //Console *console =
+    //SDL_LoadBMP("");
 
     bool done = false;
     while (!done) {

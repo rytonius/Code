@@ -1,8 +1,10 @@
 #include <iostream>
+#include <vector>
+#include <string>
 
 int main()
 {
-    std::count << "Hello World!";
+    std::cout << "Hello World!";
 
     // declaring variables:
     int a, b;
@@ -15,7 +17,7 @@ int main()
     result = a - b;
 
   // print out the result:
-    cout << result;
+    std::cout << result;
 }
 
 /*
