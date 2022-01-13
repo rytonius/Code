@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="231" Width="736">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF00FFB8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Button x:Name="button_Run" Content="Run Button" HorizontalAlignment="Left" Margin="613,44,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.277,-4.25" Height="42" Width="97" Click="button_Run_Click"/>
         <Button x:Name="button_Cancel" Content="Button Cancel" HorizontalAlignment="Left" Margin="613,108,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.277,-4.25" Height="40" Width="97" Click="button_Cancel_Click"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="138" Margin="65,44,0,0" VerticalAlignment="Top" Width="153" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="listBox_SelectionChanged"/>
