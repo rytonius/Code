@@ -348,3 +348,13 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+db.sqlite3
+migrations/
+media/
+settings.py
+Python/Environments/.idea/
+Python/Environments/my_env/
