@@ -27,3 +27,5 @@ def division(first, second):
 def donut(outside_radius, inside_radius):
     return circle(outside_radius) - circle(inside_radius)
 
+def calculate_resolution(width, height):
+    return "{}x{}".format(width*2,height*2)
