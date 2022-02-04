@@ -1,0 +1,4 @@
+Jill Burr,555-3932,system admin
+Bob Saget,555-3222,Teacher
+Cop Dooham,555-2921,Copper
+Dingo Ate Baby,192-4999,Sassy
