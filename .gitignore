@@ -358,3 +358,4 @@ media/
 settings.py
 Python/Environments/.idea/
 Python/Environments/my_env/
+cPlusPlus/.vscode/tasks.json
