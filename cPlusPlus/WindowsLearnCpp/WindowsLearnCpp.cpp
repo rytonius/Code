@@ -5,13 +5,20 @@
 #include <stdlib.h>
 #include <time.h>
 
+//double quotes has compiler search though current working directory
+// you can include other directories with file paths ie "folder/path/myheaders.h"
+#include "add.h"
+
+#define PRINT_JOE
+
 int getValueFromUser();
 void printDouble(int value);
 
 int Damage(int strength, int defense)
 {
 	int getRandom;
-
+	std::cout << "\ntaking strenght and subtracting defense then using a random gen: " << strength << "\t" << defense;
+	
 	getRandom = rand() % 10 + 0;
 
 	return { getRandom + strength - defense } ;
@@ -27,6 +34,34 @@ int Input()
 	return enemyHP;
 }
 
+void Conditional_Compliation() {
+#ifdef PRINT_JOE
+	std::cout << "\n Joe\n";
+#endif
+
+#ifdef PRINT_BOB
+	std::cout << "\nBOB\n";
+#endif
+
+#ifndef DOESNTEXIST
+	std::cout << "\nThis prints becaues ifndef is if a condition doesn't exist";
+#endif
+
+/*
+In place of #ifdef PRINT_BOB and #ifndef PRINT_BOB, you’ll also see 
+#if defined(PRINT_BOB) and #if !defined(PRINT_BOB).These do the same, but use a slightly more C++ - style syntax.
+*/
+
+#if 0 // Don't compile anything starting here
+	std::cout << "Bob\n";
+	/* Some
+	 * multi-line
+	 * comment here
+	 */
+	std::cout << "Steve\n";
+#endif // until this point
+}
+
 int main()
 {
 	int playerHP{ 100 }, enemyHP{ Input() }, playerSTR{ 10 }, playerDEF{ 10 }, enemySTR{ 2 }, enemyDEF{ 2 };
@@ -35,6 +70,9 @@ int main()
 
 	std::cout << "hello world!\n" << Damage(playerSTR, enemySTR) << "\n" << Damage(enemySTR, playerDEF)
 		<< "\n playerhp x 4: " << playerHP * 4;
+
+	std::cout << "5 subtracted from 4 =" << subtract(4, 5);
+
 	
 
 	std::cout << "\n\nNow onto our next show";
@@ -44,6 +82,8 @@ int main()
 	std::cout << "\nPlayerHP: " << playerHP << " | PlayerSTR: " << playerSTR << " | PlayerDEF: " << playerDEF
 		<< "\nMonsterHP: " << enemyHP << " | MonsterSTR: " << enemySTR << " | MonsterDEF: " << enemyDEF << "\n\n";
 
+	std::cout << "\n\n";
+	Conditional_Compliation();
 	return 0;
 
 }
