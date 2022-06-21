@@ -49,7 +49,7 @@ void StringExample() {
     std::cout << "Enter your full name: ";
     std::string name{}; // empty string
     std::cin >> name;
-    
+     
 }
 
 
