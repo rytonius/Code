@@ -1,0 +1,15 @@
+﻿<Window x:Class="CsharpGUI_PSscriptrunner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CsharpGUI_PSscriptrunner"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="231" Width="736">
+    <Grid>
+        <Button x:Name="button_Run" Content="Run Button" HorizontalAlignment="Left" Margin="613,44,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.277,-4.25" Height="42" Width="97" Click="button_Run_Click"/>
+        <Button x:Name="button_Cancel" Content="Button Cancel" HorizontalAlignment="Left" Margin="613,108,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.277,-4.25" Height="40" Width="97" Click="button_Cancel_Click"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="138" Margin="65,44,0,0" VerticalAlignment="Top" Width="153" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="listBox_SelectionChanged"/>
+
+    </Grid>
+</Window>

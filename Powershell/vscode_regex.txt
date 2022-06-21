@@ -1,0 +1,9 @@
+^((?!SomeTextHere).)*$
+matches everything BUT SomeTextHere
+
+Find:
+\n\n
+Replace:
+\n 
+match against all, deletes extra newlines.
+

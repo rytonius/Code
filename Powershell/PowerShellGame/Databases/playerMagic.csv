@@ -1,0 +1,5 @@
+id,name,mpcost,power,self
+1,Heal,15,3,TRUE
+2,Fire,10,2,
+3,Ice,16,3,
+4,Lightning,22,4,

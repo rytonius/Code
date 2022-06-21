@@ -1,0 +1,3 @@
+itemname,hpmax,mpmax,attack,defense,agi,mag,type
+IronSword,0,0,10,0,0,0,weapon
+BronzeChest,0,0,0,10,0,0,armor

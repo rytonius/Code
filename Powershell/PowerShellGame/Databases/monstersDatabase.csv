@@ -1,0 +1,9 @@
+#TYPE MonsterClass,,,,,,,,,,
+name,hpMax,mpMax,ATT,DEF,AGI,Mag,XP,silver,Mskills,Location
+Peon,35,16,6,5,9,4,8,3,,woods
+Orc,50,30,8,7,6,5,14,5,,woods
+Axe-Thrower,55,40,11,6,9,6,22,10,,woods
+Armored-Orc,50,30,9,13,4,4,20,12,,woods
+Goblin,40,20,8,7,12,8,14,6,,caves
+Bear,120,16,15,15,8,10,30,18,,caves
+Ogre,80,60,18,16,11,19,45,25,,caves
