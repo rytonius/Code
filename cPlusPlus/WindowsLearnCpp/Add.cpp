@@ -14,6 +14,17 @@ void printDouble(int value)
 	std::cout << value << " doubled is: " << value * 2 << '\n';
 }
 
-int substract(int x, int y) {
+int subtract(int x, int y) {
 	return x - y;
 }
+
+int add(int x, int y) {
+	return x + y;
+};
+int multi(int x, int y) {
+	return x * y;
+}
+float divide(float x, float y) {
+	
+	return (x / y);
+};

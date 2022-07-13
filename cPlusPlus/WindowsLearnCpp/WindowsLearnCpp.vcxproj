@@ -134,6 +134,9 @@
     <ClCompile Include="Add.cpp" />
     <ClCompile Include="WindowsLearnCpp.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="add.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

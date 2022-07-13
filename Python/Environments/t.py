@@ -5,8 +5,6 @@ def get_content(file):
         return print(text)
 
 
-def regex_content(file):
-
-
+#def regex_content(file):
 
 get_content("./directory/t.xt")

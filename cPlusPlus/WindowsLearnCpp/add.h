@@ -5,6 +5,6 @@
 int subtract(int x, int y);
 int add(int x, int y);
 int multi(int x, int y);
-int divide(float x, float y);
+float divide(float x, float y);
 
 #endif
