@@ -38,7 +38,7 @@ bld/
 
 # Visual Studio 2017 auto generated files
 Generated\ Files/
-*.vcxproj
+#*.vcxproj
 
 
 # MSTest test Results
