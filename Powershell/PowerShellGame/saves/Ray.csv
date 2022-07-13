@@ -1,0 +1,2 @@
+name,LVL,hpMax,HP,mpMax,MP,ATT,DEF,AGI,Mag,XP,XPmax,Silver,skills,Weapon,Armor
+Ray,1,87,87,46,24,100,9,90,10,9,50,16,System.String[],global:Get-Init.PlayerItem,global:Get-Init.PlayerItem
