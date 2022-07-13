@@ -52,6 +52,11 @@ void StringExample() {
      
 }
 
+void passtime() {
+    std::cout << "passtime method starting: " << std::endl;
+
+}
+
 
 
 int main()
