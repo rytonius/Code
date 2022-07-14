@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <array>
 #include <iomanip>
+#include "primenumber.h"
 
 float GetPrecision(float x) {
 
@@ -61,6 +62,11 @@ void passtime() {
 
 int main()
 {
+    if (IsPrimeNumber()) std::cout << "\nYou have a prime number\n\n";
+    else std::cout << "\nthis is not a prime number\n\n";
+
+
+
     // construction uses aggregate initialization
     std::array<int, 3> a1{ {1, 2, 3} }; // double-braces required in C++11 prior to
                                         // the CWG 1270 revision (not needed in C++11
