@@ -14,14 +14,16 @@ bool IsPrimeNumber() {
 	std::cin >> x;
 
 	std::cout << x << " was entered\n";
-	for (int y = 2; y <= x / 2; y++) {
-		
-		
-		std::cout << std::left << "\nchecking " << x << " % " << y << " divided with remaining: " << std::right << (x / y) << "r" << (x % y);
+	return LoopInput(x);
 
+}
+
+bool LoopInput(int x)
+{
+	for (int y = 2; y <= x / 2; y++) {
+		std::cout << std::left << "\nchecking " << x << " % " << y << " divided with remaining: " << std::right << (x / y) << "r" << (x % y);
 		if (x % y == 0) return false;
 	}
 
 	return true;
-
 }

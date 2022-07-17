@@ -8,6 +8,7 @@
 #include <array>
 #include <iomanip>
 #include "primenumber.h"
+#include "Stringy.h"
 
 float GetPrecision(float x) {
 
@@ -49,7 +50,7 @@ void StringExample() {
 
     std::cout << "Enter your full name: ";
     std::string name{}; // empty string
-    std::cin >> name;
+    std::getline(std::cin >> std::ws, name);
      
 }
 
@@ -65,7 +66,22 @@ int main()
     if (IsPrimeNumber()) std::cout << "\nYou have a prime number\n\n";
     else std::cout << "\nthis is not a prime number\n\n";
 
+    std::string_view s{"testing"};
+    
+    askName(s);
 
+    std::string_view sv{ "balloon" };
+
+    std::string str{ sv }; // okay, we can create std::string using std::string_view initializer
+
+    // printString(sv);   // compile error: won't implicitly convert std::string_view to a std::string
+
+    printString(static_cast<std::string>(sv)); // okay, we can explicitly cast a std::string_view to a std::string
+
+    do
+    {
+        std::cout << '\n' << "Press a key to continue...";
+    } while (std::cin.get() != '\n');
 
     // construction uses aggregate initialization
     std::array<int, 3> a1{ {1, 2, 3} }; // double-braces required in C++11 prior to
