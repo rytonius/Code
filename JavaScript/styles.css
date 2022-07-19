@@ -1,0 +1,15 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: bold;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 36px;
+}
+
+.Left {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    
+}
