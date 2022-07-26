@@ -27,7 +27,7 @@ int Input()
 {
 	int enemyHP{ 1 }, enemySTR{ 1 }, enemyDEF{ 0 };
 
-	std::cout << "Input monster health, attack, def; and use spaces to seperate values = ";
+	std::cout << "\nInput monster health, attack, def; and use spaces to seperate values = ";
 	std::cin >> enemyHP >> enemySTR >> enemyDEF;
 
 	return enemyHP;
@@ -61,8 +61,44 @@ In place of #ifdef PRINT_BOB and #ifndef PRINT_BOB, you’ll also see
 #endif // until this point
 }
 
+void Static_Cast_Example(int x) {
+	//https://www.learncpp.com/cpp-tutorial/introduction-to-type-conversion-and-static_cast/
+	std::cout << x << std::endl;
+	char ch{ 97 }; //97 is ASCII code for 'a'
+	std::cout << ch << " has a value of " << static_cast<int>(ch) << '\n';
+	unsigned int u{ 5u }; // 5u means the number 5 as an unsigned int
+	int s{ static_cast<int>(u) }; // return value of variable u as an int
+
+	int z{ 7 };
+	int y{ 4 };
+
+	// you can divide ints by casting to a double or float
+	std::cout << "int / int = " << z / y << '\n';
+	std::cout << "double / int = " << static_cast<double>(z) / y << '\n';
+	std::cout << "int / double = " << z / static_cast<double>(y) << '\n';
+	std::cout << "double / double = " << static_cast<double>(z) / static_cast<double>(y) << '\n';
+
+	std::cout << s << '\n';
+}
+
+void ASCII(char x) {
+	std::cout << "\nYou entered: " << static_cast<char>(x) << " which has an ASCII code of: " << static_cast<int>(x);
+}
+
 int main()
 {
+	/*Key insight
+
+	Whenever you see C++ syntax (excluding the preprocessor) that makes use of angled brackets (<>), 
+	the thing between the angled brackets will most likely be a type.
+	This is typically how C++ deals with concepts that need a parameterizable type.  */ 
+	Static_Cast_Example(static_cast<int>(5.5));
+
+	std::cout << "Enter a single character: ";
+	char singlechar{};
+	std::cin >> singlechar;
+	ASCII(static_cast<char>(singlechar));
+
 	int playerHP{ 100 }, enemyHP{ Input() }, playerSTR{ 10 }, playerDEF{ 10 }, enemySTR{ 2 }, enemyDEF{ 2 };
 
 	printDouble(getValueFromUser());
