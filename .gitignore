@@ -362,3 +362,11 @@ Python/Environments/.idea/
 Python/Environments/my_env/
 cPlusPlus/.vscode/tasks.json
 *.filters
+
+#android studio
+*.iml
+*.gradle
+*.DS_Store
+*.externalNativeBuild
+*.cxx
+*.local.properties
