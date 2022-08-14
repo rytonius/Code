@@ -22,8 +22,8 @@ int main()
     cout << "Hello world!\n" << "x equals: " << x << endl << "does this work\n\n";
     cout << "Hey type number: "; cin >> y; cout << "\n" << "you typed: " << y << endl;
 
-    std::cout << "Double " << y << " is: " << y * 2 << '\n';
-	std::cout << "Triple " << y << " is: " << y * 3 << '\n';
+    cout << "Double " << y << " is: " << y * 2 << '\n';
+	cout << "Triple " << y << " is: " << y * 3 << '\n';
 
 	writesomething("howdy");
 	cout << "\n\n";
