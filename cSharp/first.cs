@@ -1,11 +1,26 @@
-Using System;
+using System;
 
-namespace HelloWorldApplication {
-    class HelloWorld {
-        static void Main(string[] args) {
-            // helloworld
-            Console.WriteLine("Hello World");
-            Consoel.ReadKey();
-        }
-    }
+public class Person
+{
+   public Person(string firstName, string lastName)
+   {
+      fname = firstName;
+      lname = lastName;
+   }
+
+   private string fname;
+   private string lname;
+
+   public override string ToString() => $"{fname} {lname}".Trim();
+   public void DisplayName() => Console.WriteLine(ToString());
+}
+
+class Example
+{
+   static void Main()
+   {
+      Person p = new Person("Mandy", "Dejesus");
+      Console.WriteLine(p);
+      p.DisplayName();
+   }
 }

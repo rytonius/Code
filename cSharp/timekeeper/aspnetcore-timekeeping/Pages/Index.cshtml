@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>how about that</p>
+    <p>update in real time</p>
+   
+    
+</div>
+
+@foreach ( var datainfo in Model.Datas) {
+    <h2>
+        
+        @datainfo.ID
+        @datainfo.Title
+        @datainfo.Description
+        
+    </h2>
+    
+}
