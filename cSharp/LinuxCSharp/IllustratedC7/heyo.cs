@@ -25,5 +25,28 @@ namespace IllustratedC7
             int var1 = 2, var2 = 4;
             Console.WriteLine($"{var1} + {var2} = {var1+var2}");
         }
+
+        void GetCurrentDate() 
+        {
+            Console.WriteLine("What is your name?");
+            var name = Console.ReadLine();
+            
+            var currentDate = DateTime.Now;
+            Console.WriteLine($"{Environment.NewLine}Hello, {name}, on {currentDate:d} at {currentDate:t}!");
+            Console.Write($"{Environment.NewLine}Press any key to exit...");
+    
+        }
+
+        
+    }
+
+    public class ReferenceTesting 
+    {
+        public void ReferenceStuff(ref int x) 
+        {
+            Console.WriteLine($"reference: {x} adding 1 to it");
+            x++;
+            Console.WriteLine($"reference: {x}");
+        }
     }
 }

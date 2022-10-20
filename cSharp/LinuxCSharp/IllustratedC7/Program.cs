@@ -1,8 +1,10 @@
 ﻿namespace IllustratedC7
 {
+    
     class Program
     {
-        
+        ReferenceTesting RT;
+        private int five = 5;
         static void Main()
         {
             Console.WriteLine("Hello, World!");
@@ -23,7 +25,19 @@
             heyo HEYO = new heyo();
             
             HEYO.PV();
-            
+            Program P = new Program();
+            P.referencetest();
+
+        }
+
+        void referencetest() 
+        {
+            int f = five; 
+            ReferenceTesting RT = new IllustratedC7.ReferenceTesting();
+            Console.WriteLine($"reference test {f}");
+            RT.ReferenceStuff(ref f);
+            Console.WriteLine($"reference test {f}");
+
         }
     }
 }
