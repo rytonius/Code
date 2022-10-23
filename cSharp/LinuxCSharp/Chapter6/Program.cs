@@ -44,12 +44,12 @@
 
             MyClass b1 = new MyClass();
             Console.WriteLine($"Before method call:\t{b1.Val,10}");
-            RefAsParameter( b1 );
+            RefAsParameter(b1);
             Console.WriteLine($"After method call:\t{b1.Val,10}\n\n");
 
             MyClass c1 = new MyClass();
             Console.WriteLine($"Before method call:\t{c1.Val,10}");
-            RefAsParameter2( ref c1 );
+            RefAsParameter2(ref c1);
             Console.WriteLine($"After method call:\t{c1.Val,10}");
 
         }
@@ -62,26 +62,25 @@
             Console.WriteLine($"f1.Val: {f1.Val}, f2: {f2}");
         }
 
-        static void RefAsParameter( MyClass f1 ) {
+        static void RefAsParameter(MyClass f1)
+        {
             // turn into 50 like a boss
             f1.Val = 50;
-            Console.WriteLine($"After member assignment:\t{ f1.Val }");
+            Console.WriteLine($"After member assignment:\t{f1.Val}");
             // make a new class, cause why not
             f1 = new MyClass();
-            Console.WriteLine($"After new object creation:\t{ f1.Val }");
+            Console.WriteLine($"After new object creation:\t{f1.Val}");
         }
 
-        static void RefAsParameter2( ref MyClass f1 ) {
+        static void RefAsParameter2(ref MyClass f1)
+        {
             // Assign to the object member
             f1.Val = 50;
-            Console.WriteLine($"After member assignment:\t{ f1.Val }");
+            Console.WriteLine($"After member assignment:\t{f1.Val}");
             // Create a new object and assign it to the formal parameter.
             f1 = new MyClass();
-            Console.WriteLine($"After new object creation:\t{ f1.Val }");
+            Console.WriteLine($"After new object creation:\t{f1.Val}");
         }
-
-
-
 
     }
 
