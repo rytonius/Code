@@ -43,11 +43,13 @@
             // reference types as value and reference parameters
 
             MyClass b1 = new MyClass();
+            Console.WriteLine("Shows non-reference parameter with method");
             Console.WriteLine($"Before method call:\t{b1.Val,10}");
             RefAsParameter(b1);
             Console.WriteLine($"After method call:\t{b1.Val,10}\n\n");
 
             MyClass c1 = new MyClass();
+            Console.WriteLine("Shows reference parameter with method");
             Console.WriteLine($"Before method call:\t{c1.Val,10}");
             RefAsParameter2(ref c1);
             Console.WriteLine($"After method call:\t{c1.Val,10}");
