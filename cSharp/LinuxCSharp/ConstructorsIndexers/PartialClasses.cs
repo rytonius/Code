@@ -19,6 +19,28 @@ namespace ConstructorsIndexers
 
             PC.Output1(5); 
             PC.Output2("berry");
+
+            Console.WriteLine("Partial method class");
+
+            var PMC = new PartialMethodClass();
+
+            PMC.Add(5, 6);
+        }
+    }
+
+    // Example of partial method, which are imlicitly private
+    partial class PartialMethodClass {
+        //Contextual keyword, must be void
+        partial void PrintSum(int x, int y);  // defining partial method
+        public void Add(int x, int y) {
+            PrintSum(x, y);
+        }
+
+    }
+    partial class PartialMethodClass {
+        partial void PrintSum(int x, int y)
+        {
+            Console.WriteLine("Sum is {0}", x + y);
         }
     }
 }

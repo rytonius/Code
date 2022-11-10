@@ -95,8 +95,8 @@ class Program {
         //Indexer Example
         DoStuff.NewEmployees();
 
+        // Partial Examples
         WriteLine("\nPartial Classes Example\n");
         RunPartial.RunThatClass();
-
     }
 }
