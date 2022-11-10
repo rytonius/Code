@@ -32,7 +32,7 @@ class C1 {
 
 }
 
-
+// static properties page 151
 namespace StaticProps {
     class Trivial {
         public static int MyValue { get; set;}
