@@ -13,7 +13,7 @@ namespace ClassInheritance_and_Overrides
     }
 
     class MyDerivedClass : MyBaseClass {
-        public int var1;
+        public int var1 = 1;
         new public void Print() {
             Console.WriteLine("This is the derived class.");
         }

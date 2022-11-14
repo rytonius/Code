@@ -1,4 +1,7 @@
-﻿using ClassInheritance_and_Overrides;
+﻿using System.Drawing;
+using Console = Colorful.Console;
+
+using ClassInheritance_and_Overrides;
 class SomeClass {
     public string Field1 = "Base class field ";
     public string Field3 = "Base class field 3";
@@ -19,7 +22,8 @@ class OtherClass: SomeClass {
     }
 
     new public void Method3() {
-        Console.WriteLine($"Derived class -- Method3: {Field3}");
+        Console.WriteAscii("SUP BABY", Color.Aqua);
+        Console.WriteLine($"Derived class -- Method3: {Field3}", Color.Red);
         Console.WriteLine($"Derived class -- Method3: {base.Field3}"); // base.field will have it use base class 
     }
 }
@@ -39,8 +43,16 @@ class Program {
         oc.Method2( oc.Field3);
         oc.Method3();
 
-        Console.WriteLine("\nReferenceBaseClass Examples:\n");
+        Console.WriteLine("\nReferenceBaseClass Examples:\n", Color.Green);
         
         RunIt.RunMethod();
+
+        Console.WriteLine("\nOverrideBaseClass Examples:\n", Color.Green);
+
+        OverridingMethod.GetRunIt();
+
+        Console.WriteLine("\nConstructorInitializers Examples:\n", Color.Green);
+
+        ConstructorInitalizers.ConstructorRun();
     }
 }
