@@ -54,5 +54,9 @@ class Program {
         Console.WriteLine("\nConstructorInitializers Examples:\n", Color.Green);
 
         ConstructorInitalizers.ConstructorRun();
+
+        Console.WriteLine("\nAbstractClass Examples:\n", Color.Green);
+        AbstractClasses AC = new AbstractClasses();
+        AC.AbstractRunIt();
     }
 }
