@@ -53,8 +53,6 @@ namespace ClassInheritance_and_Overrides
             mc.MyInt = 28;
             Console.WriteLine( mc.MyInt);
             Console.WriteLine($"Perimeter Length: { mc.PerimeterLength() }");
-
-
         }
         
     }

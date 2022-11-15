@@ -58,5 +58,8 @@ class Program {
         Console.WriteLine("\nAbstractClass Examples:\n", Color.Green);
         AbstractClasses AC = new AbstractClasses();
         AC.AbstractRunIt();
+
+        Console.WriteLine("\nExtension Methods Examples:\n", Color.Green);
+        ExtensionMethods.RunIt();
     }
 }
