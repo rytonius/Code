@@ -44,3 +44,8 @@ WriteLine("\nExpressionsAndOperators.UserDefinedTypeConversions.RunIt()\n");
 ExpressionsAndOperators.UserDefinedTypeConversions.RunIt();
 WriteLine("\nExpressionsAndOperators.OperatorOverloading.RunIt()\n");
 ExpressionsAndOperators.OperatorOverloading.RunIt();
+WriteLine("\nExpressionsAndOperators.OperatorOverloadingSequal.RunIt()\n");
+ExpressionsAndOperators.OperatorOverloadingSequal OOS = new ExpressionsAndOperators.OperatorOverloadingSequal();
+OOS.RunIt();
+WriteLine("\nExpressionsAndOperators.TypeOf.RunIt();\n");
+ExpressionsAndOperators.TypeOf.RunIt();
