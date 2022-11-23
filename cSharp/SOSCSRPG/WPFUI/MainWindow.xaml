@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUI"
         mc:Ignorable="d"
-        Title="Crummy but Awesome RPG" Height="768" Width="1024">
-    <Grid>
+        Title="Crummy but Awesome RPG" Height="800" Width="1024">
+    <Window.Resources>
+        <SolidColorBrush x:Key="FUSCHIA" Color="#A239CA"></SolidColorBrush>
+        <SolidColorBrush x:Key="JEWEL" Color="#4717F6"></SolidColorBrush>
+        <SolidColorBrush x:Key="VOID" Color="#0E0B16"></SolidColorBrush>
+        <SolidColorBrush x:Key="STARK" Color="#E7DFDD"></SolidColorBrush>
+        <SolidColorBrush x:Key="ALICEBLUE" Color="AliceBlue"></SolidColorBrush>
+    </Window.Resources>
+
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -17,11 +25,11 @@
             <ColumnDefinition Width="*"/>
 
         </Grid.ColumnDefinitions>
-
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Menu" Background="AliceBlue"/>
+        <!--Menu Top bar-->
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Menu" Background="{StaticResource STARK}"/>
         <Label Grid.Row="0" Grid.Column="1" Content="Put something here later?" HorizontalContentAlignment="Center"/>
-
-        <Grid Grid.Row="1" Grid.Column="0" Background="#0E0B16">
+        <!--Player Area top Left-->
+        <Grid Grid.Row="1" Grid.Column="0" Background="{StaticResource VOID}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -47,45 +55,81 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Player" HorizontalContentAlignment="Center" Foreground="AliceBlue"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="Name:" Foreground="AliceBlue"/>
-            <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentPlayer.Name}" Foreground="AliceBlue"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="Class:" Foreground="AliceBlue"/>
-            <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.CharacterClass}" Foreground="AliceBlue"/>
-            <Label Grid.Row="3" Grid.Column="0" Content="Level:" Foreground="AliceBlue"/>
-            <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.Level }" Foreground="AliceBlue"/>
-            <Label Grid.Row="4" Grid.Column="0" Content="XP to Level:" Foreground="AliceBlue"/>
-            <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.XPtillNextLvl}" Foreground="AliceBlue"/>
-            <Label Grid.Row="5" Grid.Column="0" Content="Denarius:" Foreground="AliceBlue"/>
-            <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.GoldString}" Foreground="AliceBlue"/>
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Player" HorizontalContentAlignment="Center" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Name:" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentPlayer.Name}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Class:" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.CharacterClass}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Level:" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.Level }" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="XP to Level:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Reduce value to 0 to level up, next level requirements = (Level * 40) * 1.1 rounded up"/>
+            <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.XPtillNextLvl}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="Denarius:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Currency in this world"/>
+            <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.GoldString}" Foreground="{StaticResource ALICEBLUE}"/>
 
-            <Label Grid.Row="6" Grid.Column="0" Content="Prinny Stats" Foreground="AliceBlue" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
-            <Label Grid.Row="7" Grid.Column="0" Content="HP:" Foreground="AliceBlue"/>
-            <Label Grid.Row="7" Grid.Column="1" Content="{Binding CurrentPlayer.HitPoints}" Foreground="AliceBlue"/>
-            <Label Grid.Row="8" Grid.Column="0" Content="Stam:" Foreground="AliceBlue"/>
-            <Label Grid.Row="8" Grid.Column="1" Content="{Binding CurrentPlayer.StamPoints}" Foreground="AliceBlue"/>
-            <Label Grid.Row="9" Grid.Column="0" Content="Strength:" Foreground="AliceBlue"/>
-            <Label Grid.Row="9" Grid.Column="1" Content="{Binding CurrentPlayer.Strength}" Foreground="AliceBlue"/>
-            <Label Grid.Row="10" Grid.Column="0" Content="Dexterity:" Foreground="AliceBlue"/>
-            <Label Grid.Row="10" Grid.Column="1" Content="{Binding CurrentPlayer.Dexterity}" Foreground="AliceBlue"/>
-            <Label Grid.Row="11" Grid.Column="0" Content="Endurance:" Foreground="AliceBlue"/>
-            <Label Grid.Row="11" Grid.Column="1" Content="{Binding CurrentPlayer.Endurance}" Foreground="AliceBlue"/>
+            <Label Grid.Row="6" Grid.Column="0" Content="Prinny Stats" Foreground="{StaticResource ALICEBLUE}" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
+            <Label Grid.Row="7" Grid.Column="0" Content="HP:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Hitpoints = 10 + (Endurance * level * 2)"/>
+            <Label Grid.Row="7" Grid.Column="1" Content="{Binding CurrentPlayer.HitPoints}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="8" Grid.Column="0" Content="Stam:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Stamina Points = 10 + (Dex + Str * level)"/>
+            <Label Grid.Row="8" Grid.Column="1" Content="{Binding CurrentPlayer.StamPoints}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="9" Grid.Column="0" Content="Strength:" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="9" Grid.Column="1" Content="{Binding CurrentPlayer.Strength}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="10" Grid.Column="0" Content="Dexterity:" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="10" Grid.Column="1" Content="{Binding CurrentPlayer.Dexterity}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="11" Grid.Column="0" Content="Endurance:" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="11" Grid.Column="1" Content="{Binding CurrentPlayer.Endurance}" Foreground="{StaticResource ALICEBLUE}"/>
 
-            <Label Grid.Row="12" Grid.Column="0" Content="Battle Stats" Foreground="AliceBlue" Grid.ColumnSpan="2" HorizontalContentAlignment="Center"/>
-            <Label Grid.Row="13" Grid.Column="0" Content="Attack:" Foreground="AliceBlue"/>
-            <Label Grid.Row="13" Grid.Column="1" Content="{Binding CurrentPlayer.Attack}" Foreground="AliceBlue"/>
-            <Label Grid.Row="14" Grid.Column="0" Content="Defense:" Foreground="AliceBlue"/>
-            <Label Grid.Row="14" Grid.Column="1" Content="{Binding CurrentPlayer.Defense}" Foreground="AliceBlue"/>
-            <Label Grid.Row="15" Grid.Column="0" Content="Evade:" Foreground="AliceBlue"/>
-            <Label Grid.Row="15" Grid.Column="1" Content="{Binding CurrentPlayer.Evade}" Foreground="AliceBlue"/>
-            <Label Grid.Row="16" Grid.Column="0" Content="Accuracy:" Foreground="AliceBlue"/>
-            <Label Grid.Row="16" Grid.Column="1" Content="{Binding CurrentPlayer.BonusAccuracy}" Foreground="AliceBlue"/>
+            <Label Grid.Row="12" Grid.Column="0" Content="Battle Stats" Foreground="{StaticResource ALICEBLUE}" Grid.ColumnSpan="2" HorizontalContentAlignment="Center"/>
+            <Label Grid.Row="13" Grid.Column="0" Content="Attack:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Damage on Attack, Max = Strength * 2 + Dex + weaponbonus, Min = Max * 0.5"/>
+            <Label Grid.Row="13" Grid.Column="1" Content="{Binding CurrentPlayer.Attack}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="14" Grid.Column="0" Content="Defense:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Defense blocks damage received, Max = Dex + End * 2 + armor * 0.75, Min = Max * 0.5"/>
+            <Label Grid.Row="14" Grid.Column="1" Content="{Binding CurrentPlayer.Defense}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="15" Grid.Column="0" Content="Evade:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Evasion = Dex + level, Attack chance is based on a D20 roll, Evasion increases minimium roll to hit ie 8 would require a 8 an higher."/>
+            <Label Grid.Row="15" Grid.Column="1" Content="{Binding CurrentPlayer.Evade}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="16" Grid.Column="0" Content="Accuracy:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Accuracy = Dex + level, D20 + Accurace for roll ie 8 would mean 8 + d20 so 8-28 chance.  Crit happens no matter what on d20"/>
+            <Label Grid.Row="16" Grid.Column="1" Content="{Binding CurrentPlayer.BonusAccuracy}" Foreground="{StaticResource ALICEBLUE}"/>
 
         </Grid>
+        <!--Game Area top right-->
+        <Grid Grid.Row="1" Grid.Column="1" Background="{StaticResource JEWEL}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="1" Grid.Column="1" Content="Game Data" Foreground="GhostWhite" Background="#4717F6"/>
-        <Label Grid.Row="2" Grid.Column="0" Content="Inventory/Quests" Background="#A239CA"/>
-        <Label Grid.Row="2" Grid.Column="1" Content="Combat/Movement Controls" Background="#E7DFDD"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Border Grid.Row="0" Grid.Column="1" BorderBrush="#372EC9" BorderThickness="1">
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="LocationName" Grid.Row="0" Text="{Binding CurrentLocation.Name , FallbackValue='Name'}" HorizontalAlignment="Center" Foreground="{StaticResource ALICEBLUE}"></TextBlock>
+                    <Image Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="256" Height="256" Source="{Binding CurrentLocation.ImageName}"/>
+                    <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="{Binding CurrentLocation.Description , FallbackValue='Description'}" TextWrapping="Wrap" Foreground="{StaticResource ALICEBLUE}"></TextBlock> 
+                </Grid>
+
+
+
+            </Border>
+        </Grid>
+        <!--Inventory/ Quest bottom left-->
+        <Label Grid.Row="2" Grid.Column="0" Content="Inventory/Quests" Foreground="{StaticResource ALICEBLUE}" Background="{StaticResource FUSCHIA}"/>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="2" Content="Gain 10 Xp" Click="XPButtonBase_OnClick"/>
+        </Grid>
+        <!--Combat movement bottom left-->
+        <Label Grid.Row="2" Grid.Column="1" Content="Combat/Movement Controls" Background="{StaticResource STARK}"/>
 
     </Grid>
 </Window>

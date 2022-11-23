@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using Engine.ViewModels;
 
 namespace WPFUI
@@ -21,14 +23,31 @@ namespace WPFUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private GameSession? _gameSession;
+        private GameSession _gameSession;
+        
 
         public MainWindow()
         {
             InitializeComponent();
+            
             _gameSession = new GameSession();
             // Data context is a built in property for the xaml window
             DataContext= _gameSession;
+            //Startup();
+            
+            
         }
+        
+        private void XPButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            _gameSession.CurrentPlayer.XPtillNextLvl -= 10;
+        }
+
+        //private void Startup()
+        //{
+        //    TextBlock _LocationName = LocationName;
+        //    _LocationName.Text = _gameSession.CurrentLocation.Name;
+        //}
+        
     }
 }
