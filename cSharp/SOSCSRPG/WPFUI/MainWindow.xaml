@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUI"
         mc:Ignorable="d"
-        Title="Crummy but Awesome RPG" Height="800" Width="1024">
+        Title="Crummy but Awesome RPG" Height="880" Width="1024">
     <Window.Resources>
         <SolidColorBrush x:Key="FUSCHIA" Color="#A239CA"></SolidColorBrush>
         <SolidColorBrush x:Key="JEWEL" Color="#4717F6"></SolidColorBrush>
@@ -14,7 +14,7 @@
         <SolidColorBrush x:Key="ALICEBLUE" Color="AliceBlue"></SolidColorBrush>
     </Window.Resources>
 
-        <Grid>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -99,25 +99,39 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+             
             </Grid.RowDefinitions>
-            
-            <Border Grid.Row="0" Grid.Column="1" BorderBrush="#372EC9" BorderThickness="1">
-                <Grid Grid.Row="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto"/>
-                        
-                    </Grid.RowDefinitions>
-                    <TextBlock x:Name="LocationName" Grid.Row="0" Text="{Binding CurrentLocation.Name , FallbackValue='Name'}" HorizontalAlignment="Center" Foreground="{StaticResource ALICEBLUE}"></TextBlock>
-                    <Image Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="256" Height="256" Source="{Binding CurrentLocation.ImageName}"/>
-                    <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="{Binding CurrentLocation.Description , FallbackValue='Description'}" TextWrapping="Wrap" Foreground="{StaticResource ALICEBLUE}"></TextBlock> 
-                </Grid>
+            <!-- This is center middle-->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Foreground="white">Top left</Label>
+                <Label Grid.Row="1" Foreground="white">bottom left</Label>
+            </Grid>
+            <!-- This is center Right-->
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Grid.Column="1" BorderBrush="#372EC9" BorderThickness="1">
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
 
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="LocationName" Grid.Row="0" Text="{Binding CurrentLocation.Name , FallbackValue='Name'}" HorizontalAlignment="Center" Foreground="{StaticResource ALICEBLUE}"></TextBlock>
+                        <Image Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="256" Height="256" Source="pack://application:,,,/Engine;component/Images/Locations/Home.jpg" Stretch="Uniform" StretchDirection="Both" Margin="0,0,0,0"/>
+                        <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="{Binding CurrentLocation.Description , FallbackValue='Description'}" TextWrapping="Wrap" Foreground="{StaticResource ALICEBLUE}"></TextBlock>
+                    </Grid>
+                </Border>
+            </Grid>
 
-
-            </Border>
+ 
         </Grid>
         <!--Inventory/ Quest bottom left-->
         <Label Grid.Row="2" Grid.Column="0" Content="Inventory/Quests" Foreground="{StaticResource ALICEBLUE}" Background="{StaticResource FUSCHIA}"/>

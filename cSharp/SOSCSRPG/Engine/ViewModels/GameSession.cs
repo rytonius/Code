@@ -41,9 +41,10 @@ namespace Engine.ViewModels
                 CurrentLocation.XCoordinate = 0;
                 CurrentLocation.YCoordinate = -1;
                 CurrentLocation.Description = "This is your home, you have 17 kids from a woman named MARTHA";
-                CurrentLocation.ImageName = ""
+                CurrentLocation.ImageName = "pack://application:,,,/Engine;component/Images/Locations/Home.jpg";
+                //pack://application:,,,/Engine;component/Images/Locations/Home.jpg
+                //{Binding CurrentLocation.ImageName}
 
-                
             }
 
         }
