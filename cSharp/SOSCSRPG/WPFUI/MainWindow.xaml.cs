@@ -43,11 +43,35 @@ namespace WPFUI
             _gameSession.CurrentPlayer.XPtillNextLvl -= 10;
         }
 
+        private void OnClick_North(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MoveNorth();
+        }
+        private void OnClick_West(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MoveWest();
+        }
+        private void OnClick_East(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MoveEast();
+        }
+        private void OnClick_South(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MoveSouth();
+        }
+        private void OnClick_Up(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MoveUp();
+        }
+        private void OnClick_Down(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MoveDown();
+        }
         //private void Startup()
         //{
         //    TextBlock _LocationName = LocationName;
         //    _LocationName.Text = _gameSession.CurrentLocation.Name;
         //}
-        
+
     }
 }

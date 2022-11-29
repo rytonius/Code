@@ -1,16 +1,36 @@
-﻿using Engine.Models;
+﻿using Engine.Factories;
+using Engine.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Engine.ViewModels
 {
-    public class GameSession
+    public class GameSession : Notification
     {
+        private Location _currentLocation;
+        public World CurrentWorld { get; set; }
+        
         public Player CurrentPlayer { get; set; }
-        public Location? CurrentLocation { get; set; }
+        public Location CurrentLocation
+        {
+            get => _currentLocation;
+            set {
+                _currentLocation = value;
+                OnPropertyChanged("CurrentLocation");
+                OnPropertyChanged("HasLocationToNorth");
+                OnPropertyChanged("HasLocationToWest");
+                OnPropertyChanged("HasLocationToEast");
+                OnPropertyChanged("HasLocationToSouth");
+                OnPropertyChanged("HasLocationToUp");
+                OnPropertyChanged("HasLocationToDown");
+                }
+        }
+       
         public GameSession()
         {
             { // start new game, so make a player
@@ -33,20 +53,56 @@ namespace Engine.ViewModels
                 CurrentPlayer.Evade += CurrentPlayer.Dexterity;
                 CurrentPlayer.BonusAccuracy+= CurrentPlayer.Dexterity;
                 CurrentPlayer.XPtillNextLvl = (int)Math.Round((CurrentPlayer.Level * 40f) * (1.1f), 0);
+                // init world factory and create world
+                WorldFactory factory = new WorldFactory();
+                CurrentWorld = factory.CreateWorld();
 
-                // Location start
-                CurrentLocation = new Location();
-                CurrentLocation.Name = "Home Sweet Home";
-                
-                CurrentLocation.XCoordinate = 0;
-                CurrentLocation.YCoordinate = -1;
-                CurrentLocation.Description = "This is your home, you have 17 kids from a woman named MARTHA";
-                CurrentLocation.ImageName = "pack://application:,,,/Engine;component/Images/Locations/Home.jpg";
-                //pack://application:,,,/Engine;component/Images/Locations/Home.jpg
-                //{Binding CurrentLocation.ImageName}
+                CurrentLocation = CurrentWorld.LocationAt(xCoordinate: 0, yCoordinate: -1, zCoordinate: 0);
+
 
             }
 
         }
+
+        public bool HasLocationToNorth => CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate +1, CurrentLocation.ZCoordinate) != null;
+        public bool HasLocationToWest => CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate) != null;
+        public bool HasLocationToEast => CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate) != null;
+        public bool HasLocationToSouth => CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1, CurrentLocation.ZCoordinate) != null;
+        public bool HasLocationToUp => CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate + 1) != null;
+        public bool HasLocationToDown => CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate - 1) != null;
+        public void MoveNorth()
+        {
+
+            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1, CurrentLocation.ZCoordinate);
+            
+        }
+        public void MoveWest()
+        {
+            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate);
+            
+        }
+        public void MoveEast()
+        {
+            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate);
+            
+        }
+        public void MoveSouth()
+        {
+            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1, CurrentLocation.ZCoordinate);
+            
+        }
+        public void MoveUp()
+        {
+            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate + 1);
+           
+        }
+        public void MoveDown()
+        {
+            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate - 1);
+            
+        }
+
+
+
     }
 }

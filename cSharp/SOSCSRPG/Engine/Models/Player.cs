@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Engine.Models
 {
-    public class Player : Stats
+    public class Player : Stats, PlayerSpecific
     {
 
         int _level;
@@ -28,7 +28,7 @@ namespace Engine.Models
         }
         public int XPtillNextLvl
         {
-            get =>_xpTillNextLVL; 
+            get => _xpTillNextLVL;
             set { _xpTillNextLVL = value; OnPropertyChanged("XPtillNextLvl"); }
         }
 
@@ -39,12 +39,12 @@ namespace Engine.Models
         }
         public int Dexterity
         {
-            get => _dex; 
+            get => _dex;
             set { _dex = value; OnPropertyChanged("Dexterity"); }
         }
         public int Endurance
         {
-            get => _end; 
+            get => _end;
             set { _end = value; OnPropertyChanged("Endurance"); }
         }
 
@@ -56,7 +56,7 @@ namespace Engine.Models
 
     }
 
-    public class Stats : Notification
+    public abstract class Stats : Notification, BattleStats
     {
         int _hp;
         int _sp;
@@ -70,27 +70,33 @@ namespace Engine.Models
             get => _hp;
             set { _hp = value; OnPropertyChanged("Hitpoints"); }
         }
-        public int StamPoints {
-            get => _sp; 
-            set { _sp = value; OnPropertyChanged("StamPoints"); } 
+        public int StamPoints
+        {
+            get => _sp;
+            set { _sp = value; OnPropertyChanged("StamPoints"); }
         }
-        public int Attack { 
-            get => _att; 
-            set { _att = value; OnPropertyChanged("Attack"); } 
+        public int Attack
+        {
+            get => _att;
+            set { _att = value; OnPropertyChanged("Attack"); }
         }
-        public int Defense {
-            get => _def; 
-            set { _def = value; OnPropertyChanged("Defense"); } 
+        public int Defense
+        {
+            get => _def;
+            set { _def = value; OnPropertyChanged("Defense"); }
         }
-        public int Evade { 
-            get => _ev; 
-            set { _ev = value; OnPropertyChanged("Evade"); } 
+        public int Evade
+        {
+            get => _ev;
+            set { _ev = value; OnPropertyChanged("Evade"); }
         }
-        public int BonusAccuracy { 
-            get => _ba; 
-            set { _ba = value; OnPropertyChanged("BonusAccuracy"); } 
+        public int BonusAccuracy
+        {
+            get => _ba;
+            set { _ba = value; OnPropertyChanged("BonusAccuracy"); }
         }
 
+        
     }
 
     public class Notification : INotifyPropertyChanged
@@ -101,4 +107,29 @@ namespace Engine.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
+
+    interface BattleStats
+    {
+        int HitPoints { get; set; }
+        int StamPoints { get; set; }
+        int Attack { get; set; }
+        int Defense { get; set; }
+        int Evade { get; set; }
+        int BonusAccuracy { get; set; }
+
+    }
+    // These interfaces are so not needed, I just had learned them so tried it out.  It's prob more important if you have more
+    // than once class that would derive from this.
+    interface PlayerSpecific
+    {
+        int Level { get; set; }
+        int XPtillNextLvl { get; set; }
+        int Strength { get; set; }
+        int Dexterity { get; set; }
+        int Endurance { get; set; }
+        string GoldString { get; set; }
+    }
 }
+
+
+    

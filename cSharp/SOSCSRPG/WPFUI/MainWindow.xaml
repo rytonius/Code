@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUI"
         mc:Ignorable="d"
-        Title="Crummy but Awesome RPG" Height="880" Width="1024">
+        Title="Crummy but Awesome RPG" Height="880" Width="1080">
     <Window.Resources>
-        <SolidColorBrush x:Key="FUSCHIA" Color="#A239CA"></SolidColorBrush>
-        <SolidColorBrush x:Key="JEWEL" Color="#4717F6"></SolidColorBrush>
-        <SolidColorBrush x:Key="VOID" Color="#0E0B16"></SolidColorBrush>
-        <SolidColorBrush x:Key="STARK" Color="#E7DFDD"></SolidColorBrush>
-        <SolidColorBrush x:Key="ALICEBLUE" Color="AliceBlue"></SolidColorBrush>
+        <SolidColorBrush x:Key="FUSCHIA" Color="#A239CA"/>
+        <SolidColorBrush x:Key="JEWEL" Color="#4717F6"/>
+        <SolidColorBrush x:Key="VOID" Color="#0E0B16"/>
+        <SolidColorBrush x:Key="STARK" Color="#E7DFDD"/>
+        <SolidColorBrush x:Key="ALICEBLUE" Color="AliceBlue"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
     </Window.Resources>
 
     <Grid>
@@ -29,7 +30,7 @@
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Menu" Background="{StaticResource STARK}"/>
         <Label Grid.Row="0" Grid.Column="1" Content="Put something here later?" HorizontalContentAlignment="Center"/>
         <!--Player Area top Left-->
-        <Grid Grid.Row="1" Grid.Column="0" Background="{StaticResource VOID}">
+        <Grid Grid.Row="1" Grid.Column="0" Background="{StaticResource JEWEL}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -91,7 +92,7 @@
 
         </Grid>
         <!--Game Area top right-->
-        <Grid Grid.Row="1" Grid.Column="1" Background="{StaticResource JEWEL}">
+        <Grid Grid.Row="1" Grid.Column="1" Background="{StaticResource VOID}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="2*"/>
@@ -111,7 +112,7 @@
                 <Label Grid.Row="1" Foreground="white">bottom left</Label>
             </Grid>
             <!-- This is center Right-->
-            <Grid Grid.Column="1">
+            <Grid Grid.Column="1" Background="{StaticResource JEWEL}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
@@ -125,8 +126,8 @@
 
                         </Grid.RowDefinitions>
                         <TextBlock x:Name="LocationName" Grid.Row="0" Text="{Binding CurrentLocation.Name , FallbackValue='Name'}" HorizontalAlignment="Center" Foreground="{StaticResource ALICEBLUE}"></TextBlock>
-                        <Image Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="256" Height="256" Source="pack://application:,,,/Engine;component/Images/Locations/Home.jpg" Stretch="Uniform" StretchDirection="Both" Margin="0,0,0,0"/>
-                        <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="{Binding CurrentLocation.Description , FallbackValue='Description'}" TextWrapping="Wrap" Foreground="{StaticResource ALICEBLUE}"></TextBlock>
+                        <Image Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="256" Height="256" Source="{Binding CurrentLocation.ImageName}" d:Source="pack://application:,,,/Engine;component/Images/Locations/Home.jpg" Stretch="Uniform" StretchDirection="Both" Margin="0,0,0,0"/>
+                        <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="{Binding CurrentLocation.Description}" d:Text="Description"  TextWrapping="Wrap" Foreground="{StaticResource ALICEBLUE}"></TextBlock>
                     </Grid>
                 </Border>
             </Grid>
@@ -142,8 +143,39 @@
             </Grid.RowDefinitions>
             <Button Grid.Row="2" Content="Gain 10 Xp" Click="XPButtonBase_OnClick"/>
         </Grid>
-        <!--Combat movement bottom left-->
-        <Label Grid.Row="2" Grid.Column="1" Content="Combat/Movement Controls" Background="{StaticResource STARK}"/>
+        <!--Combat movement bottom Right-->
+        <Grid Grid.Row="2" Grid.Column="1" Background="{StaticResource STARK}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+        <!--Direction movement-->
+            <Grid Grid.Column="1" TextBlock.FontStyle="Italic">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="North" Grid.Row="0" Grid.Column="1"  Height="25" Width="65" Margin="10" Click="OnClick_North" Visibility="{Binding HasLocationToNorth, Converter={StaticResource BooleanToVisibility}}"/>
+                <Button Content="West" Grid.Row="1" Grid.Column="0" Height="25" Width="65" Margin="10" Click="OnClick_West" Visibility="{Binding HasLocationToWest, Converter={StaticResource BooleanToVisibility}}"/>
+                <Button Content="East" Grid.Row="1" Grid.Column="2"  Height="25" Width="65" Margin="10" Click="OnClick_East" Visibility="{Binding HasLocationToEast, Converter={StaticResource BooleanToVisibility}}"/>
+                <Button Content="South" Grid.Row="2" Grid.Column="1" Height="25" Width="65" Margin="10" Click="OnClick_South" Visibility="{Binding HasLocationToSouth, Converter={StaticResource BooleanToVisibility}}"/>
+                <Button Content="Up" Grid.Row="0" Grid.Column="0" Height="25" Width="65" Margin="10" Click="OnClick_Up" Visibility="{Binding HasLocationToUp, Converter={StaticResource BooleanToVisibility}}"/>
+                <Button Content="Down" Grid.Row="2" Grid.Column="0"  Height="25" Width="65" Margin="10" Click="OnClick_Down" Visibility="{Binding HasLocationToDown, Converter={StaticResource BooleanToVisibility}}"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="center" FontWeight="Bold" FontStyle="Normal" FontSize="16"><Span FontWeight="Normal">x: <Run FontWeight="Bold" Text="{Binding CurrentLocation.XCoordinate}"/></Span>
+                <Span FontWeight="Normal">y: <Run FontWeight="Bold" Text="{Binding CurrentLocation.YCoordinate}"/></Span>
+                <Span FontWeight="Normal">z: <Run FontWeight="Bold" Text="{Binding CurrentLocation.ZCoordinate}"/></Span></TextBlock>
+
+            </Grid>
+        </Grid>
 
     </Grid>
 </Window>

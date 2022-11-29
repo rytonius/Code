@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,12 +35,48 @@
     <None Remove="Images\Locations\01436-171844819-%28 masterpiece%29, %28high quality%29, hires, ultra detailed fantasy, realistic, dnd, rpg, lord of the rings,  art by  greg rutkowski,.png" />
     <None Remove="Images\Locations\01441-1938766696-%28 masterpiece%29, %28high quality%29, hires, ultra detailed fantasy, realistic, dnd, rpg, lord of the rings,  art by  greg rutkowski,.png" />
     <None Remove="Images\Locations\01445-2443626457-%28 masterpiece%29, %28high quality%29, hires, ultra detailed fantasy, realistic, dnd, rpg, lord of the rings,  art by  greg rutkowski,.png" />
+    <None Remove="Images\Locations\DeathTower.jpg" />
+    <None Remove="Images\Locations\EntranceGate.jpg" />
+    <None Remove="Images\Locations\ExitGate.jpg" />
+    <None Remove="Images\Locations\FarmField.jpg" />
+    <None Remove="Images\Locations\FarmField2.jpg" />
+    <None Remove="Images\Locations\FarmHouse.jpg" />
+    <None Remove="Images\Locations\ForestAreaHome.jpg" />
+    <None Remove="Images\Locations\GardenHerbalist2.jpg" />
+    <None Remove="Images\Locations\HerbalistGarden.jpg" />
+    <None Remove="Images\Locations\HerbalistHut.jpg" />
     <None Remove="Images\Locations\home.jpg" />
     <None Remove="Images\Locations\home.png" />
+    <None Remove="Images\Locations\MountainSide.jpg" />
+    <None Remove="Images\Locations\RoadFarmLand.jpg" />
+    <None Remove="Images\Locations\SpiderForestEnd.jpg" />
+    <None Remove="Images\Locations\SpiderForestEntrance.jpg" />
+    <None Remove="Images\Locations\SpiderForrestMiddle.jpg" />
+    <None Remove="Images\Locations\TownSquare.jpg" />
+    <None Remove="Images\Locations\TradingShop.jpg" />
+    <None Remove="Images\Locations\TradingShopEntrance.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Locations\DeathTower.jpg" />
+    <Resource Include="Images\Locations\EntranceGate.jpg" />
+    <Resource Include="Images\Locations\ExitGate.jpg" />
+    <Resource Include="Images\Locations\FarmField.jpg" />
+    <Resource Include="Images\Locations\FarmField2.jpg" />
+    <Resource Include="Images\Locations\FarmHouse.jpg" />
+    <Resource Include="Images\Locations\ForestAreaHome.jpg" />
+    <Resource Include="Images\Locations\GardenHerbalist2.jpg" />
+    <Resource Include="Images\Locations\HerbalistGarden.jpg" />
+    <Resource Include="Images\Locations\HerbalistHut.jpg" />
     <Resource Include="Images\Locations\home.jpg" />
+    <Resource Include="Images\Locations\MountainSide.jpg" />
+    <Resource Include="Images\Locations\RoadFarmLand.jpg" />
+    <Resource Include="Images\Locations\SpiderForestEnd.jpg" />
+    <Resource Include="Images\Locations\SpiderForestEntrance.jpg" />
+    <Resource Include="Images\Locations\SpiderForrestMiddle.jpg" />
+    <Resource Include="Images\Locations\TownSquare.jpg" />
+    <Resource Include="Images\Locations\TradingShop.jpg" />
+    <Resource Include="Images\Locations\TradingShopEntrance.jpg" />
   </ItemGroup>
 
 </Project>
