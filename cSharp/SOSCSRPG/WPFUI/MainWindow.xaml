@@ -13,8 +13,18 @@
         <SolidColorBrush x:Key="STARK" Color="#E7DFDD"/>
         <SolidColorBrush x:Key="ALICEBLUE" Color="AliceBlue"/>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="{Binding FontSizeLabel}"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        </Style>
+
+        <local:IntToStringConverter x:Key="IntToStringConverterKey"/>
     </Window.Resources>
 
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -22,13 +32,15 @@
             <RowDefinition Height="225"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" MinWidth="225"/>
+            <ColumnDefinition Width="4*"/>
 
         </Grid.ColumnDefinitions>
         <!--Menu Top bar-->
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Menu" Background="{StaticResource STARK}"/>
-        <Label Grid.Row="0" Grid.Column="1" Content="Put something here later?" HorizontalContentAlignment="Center"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Menu" VerticalAlignment="Center" Margin="4,0,0,0" Background="{StaticResource STARK}"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Put something here later?" HorizontalAlignment="Center"/>
+        <Button Name="FontHigher" Grid.Column="1" Width="60" HorizontalAlignment="Right" Click="FontSizeMethod">Font +</Button>
+        <Button Name="FontLower" Grid.Column="1" Width="60" HorizontalAlignment="Right" Margin="0,0,60,0" Click="FontSizeMethod">Font -</Button>
         <!--Player Area top Left-->
         <Grid Grid.Row="1" Grid.Column="0" Background="{StaticResource JEWEL}">
             <Grid.RowDefinitions>
@@ -62,33 +74,34 @@
             <Label Grid.Row="2" Grid.Column="0" Content="Class:" Foreground="{StaticResource ALICEBLUE}"/>
             <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.CharacterClass}" Foreground="{StaticResource ALICEBLUE}"/>
             <Label Grid.Row="3" Grid.Column="0" Content="Level:" Foreground="{StaticResource ALICEBLUE}"/>
-            <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.Level }" Foreground="{StaticResource ALICEBLUE}"/>
+            
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.Level, Converter={StaticResource IntToStringConverterKey}}" Foreground="{StaticResource ALICEBLUE}"/>
             <Label Grid.Row="4" Grid.Column="0" Content="XP to Level:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Reduce value to 0 to level up, next level requirements = (Level * 40) * 1.1 rounded up"/>
-            <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.XPtillNextLvl}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.XPtillNextLvl, Converter={StaticResource IntToStringConverterKey}}" Foreground="{StaticResource ALICEBLUE}"/>
             <Label Grid.Row="5" Grid.Column="0" Content="Denarius:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Currency in this world"/>
             <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.GoldString}" Foreground="{StaticResource ALICEBLUE}"/>
 
             <Label Grid.Row="6" Grid.Column="0" Content="Prinny Stats" Foreground="{StaticResource ALICEBLUE}" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
             <Label Grid.Row="7" Grid.Column="0" Content="HP:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Hitpoints = 10 + (Endurance * level * 2)"/>
-            <Label Grid.Row="7" Grid.Column="1" Content="{Binding CurrentPlayer.HitPoints}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="7" Grid.Column="1" Content="{Binding CurrentPlayer.HitPoints, Converter={StaticResource IntToStringConverterKey}}" Foreground="{StaticResource ALICEBLUE}"/>
             <Label Grid.Row="8" Grid.Column="0" Content="Stam:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Stamina Points = 10 + (Dex + Str * level)"/>
-            <Label Grid.Row="8" Grid.Column="1" Content="{Binding CurrentPlayer.StamPoints}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="8" Grid.Column="1" Content="{Binding CurrentPlayer.StaminaPoints, Converter={StaticResource IntToStringConverterKey}}" Foreground="{StaticResource ALICEBLUE}"/>
             <Label Grid.Row="9" Grid.Column="0" Content="Strength:" Foreground="{StaticResource ALICEBLUE}"/>
-            <Label Grid.Row="9" Grid.Column="1" Content="{Binding CurrentPlayer.Strength}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="9" Grid.Column="1" Content="{Binding CurrentPlayer.Strength, Converter={StaticResource IntToStringConverterKey}}" Foreground="{StaticResource ALICEBLUE}"/>
             <Label Grid.Row="10" Grid.Column="0" Content="Dexterity:" Foreground="{StaticResource ALICEBLUE}"/>
-            <Label Grid.Row="10" Grid.Column="1" Content="{Binding CurrentPlayer.Dexterity}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="10" Grid.Column="1" Content="{Binding CurrentPlayer.Dexterity, Converter={StaticResource IntToStringConverterKey}}" Foreground="{StaticResource ALICEBLUE}"/>
             <Label Grid.Row="11" Grid.Column="0" Content="Endurance:" Foreground="{StaticResource ALICEBLUE}"/>
-            <Label Grid.Row="11" Grid.Column="1" Content="{Binding CurrentPlayer.Endurance}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="11" Grid.Column="1" Content="{Binding CurrentPlayer.Endurance, Converter={StaticResource IntToStringConverterKey}}" Foreground="{StaticResource ALICEBLUE}"/>
 
             <Label Grid.Row="12" Grid.Column="0" Content="Battle Stats" Foreground="{StaticResource ALICEBLUE}" Grid.ColumnSpan="2" HorizontalContentAlignment="Center"/>
             <Label Grid.Row="13" Grid.Column="0" Content="Attack:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Damage on Attack, Max = Strength * 2 + Dex + weaponbonus, Min = Max * 0.5"/>
-            <Label Grid.Row="13" Grid.Column="1" Content="{Binding CurrentPlayer.Attack}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="13" Grid.Column="1" Content="{Binding CurrentPlayer.Attack, Converter={StaticResource IntToStringConverterKey}}" Foreground="{StaticResource ALICEBLUE}"/>
             <Label Grid.Row="14" Grid.Column="0" Content="Defense:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Defense blocks damage received, Max = Dex + End * 2 + armor * 0.75, Min = Max * 0.5"/>
-            <Label Grid.Row="14" Grid.Column="1" Content="{Binding CurrentPlayer.Defense}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="14" Grid.Column="1" Content="{Binding CurrentPlayer.Defense, Converter={StaticResource IntToStringConverterKey}}" Foreground="{StaticResource ALICEBLUE}"/>
             <Label Grid.Row="15" Grid.Column="0" Content="Evade:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Evasion = Dex + level, Attack chance is based on a D20 roll, Evasion increases minimium roll to hit ie 8 would require a 8 an higher."/>
-            <Label Grid.Row="15" Grid.Column="1" Content="{Binding CurrentPlayer.Evade}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="15" Grid.Column="1" Content="{Binding CurrentPlayer.Evade, Converter={StaticResource IntToStringConverterKey}}" Foreground="{StaticResource ALICEBLUE}"/>
             <Label Grid.Row="16" Grid.Column="0" Content="Accuracy:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Accuracy = Dex + level, D20 + Accurace for roll ie 8 would mean 8 + d20 so 8-28 chance.  Crit happens no matter what on d20"/>
-            <Label Grid.Row="16" Grid.Column="1" Content="{Binding CurrentPlayer.BonusAccuracy}" Foreground="{StaticResource ALICEBLUE}"/>
+            <Label Grid.Row="16" Grid.Column="1" Content="{Binding CurrentPlayer.BonusAccuracy, Converter={StaticResource IntToStringConverterKey}}" Foreground="{StaticResource ALICEBLUE}"/>
 
         </Grid>
         <!--Game Area top right-->
@@ -108,8 +121,8 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Label Foreground="white">Top left</Label>
-                <Label Grid.Row="1" Foreground="white">bottom left</Label>
+                <Label Foreground="LightGreen">Top left</Label>
+                <Label Grid.Row="1" Foreground="LightGreen">bottom left</Label>
             </Grid>
             <!-- This is center Right-->
             <Grid Grid.Column="1" Background="{StaticResource JEWEL}">

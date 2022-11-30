@@ -26,8 +26,12 @@ namespace Engine.Factories
                                 description: "Head towards Farmer's House west, or Mountain Side East",
                                 imageName: "pack://application:,,,/Engine;component/Images/Locations/FarmField.jpg");
             newWorld.AddLocation(xCoordinate: -2, yCoordinate: 0, zCoordinate: 0, name: "Farmer's House",
-                                description: "Farmer Ted lives here, he's been a good friend",
+                                description: "Farmer Ted lives here, you don't like him, but he pays money if you head west and kill" +
+                                "critters that keep eating his darn plants",
                                 imageName: "pack://application:,,,/Engine;component/Images/Locations/FarmHouse.jpg");
+            newWorld.AddLocation(xCoordinate: -3, yCoordinate: 0, zCoordinate: 0, name: "Farmer's Field 2",
+                                description: "Monsters keep stealing Farmer Gregs Grains! Get um",
+                                imageName: "pack://application:,,,/Engine;component/Images/Locations/FarmField2.jpg");
             // City Section
             newWorld.AddLocation(xCoordinate: 0, yCoordinate: 1, zCoordinate: 0, name: "Entrance Gate",
                                 description: "Enter the City from the south side",

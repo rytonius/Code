@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,28 +25,27 @@ namespace Engine.Models
         public int Level
         {
             get => _level;
-            set { _level = value; OnPropertyChanged("Level"); }
+            set { _level = value; OnPropertyChanged(nameof(Level)); }
         }
         public int XPtillNextLvl
         {
             get => _xpTillNextLVL;
-            set { _xpTillNextLVL = value; OnPropertyChanged("XPtillNextLvl"); }
+            set { _xpTillNextLVL = value; OnPropertyChanged(nameof(XPtillNextLvl)); }
         }
-
         public int Strength
         {
             get => _str;
-            set { _str = value; OnPropertyChanged("Strength"); }
+            set { _str = value; OnPropertyChanged(nameof(Strength)); }
         }
         public int Dexterity
         {
             get => _dex;
-            set { _dex = value; OnPropertyChanged("Dexterity"); }
+            set { _dex = value; OnPropertyChanged(nameof(Dexterity)); }
         }
         public int Endurance
         {
             get => _end;
-            set { _end = value; OnPropertyChanged("Endurance"); }
+            set { _end = value; OnPropertyChanged(nameof(Endurance)); }
         }
 
         public string GoldString
@@ -68,35 +68,34 @@ namespace Engine.Models
         public int HitPoints
         {
             get => _hp;
-            set { _hp = value; OnPropertyChanged("Hitpoints"); }
+            set { _hp = value; OnPropertyChanged(nameof(HitPoints)); }
         }
-        public int StamPoints
+        public int StaminaPoints
         {
             get => _sp;
-            set { _sp = value; OnPropertyChanged("StamPoints"); }
+            set { _sp = value; OnPropertyChanged(nameof(StaminaPoints)); }
         }
         public int Attack
         {
             get => _att;
-            set { _att = value; OnPropertyChanged("Attack"); }
+            set { _att = value; OnPropertyChanged(nameof(Attack)); }
         }
         public int Defense
         {
             get => _def;
-            set { _def = value; OnPropertyChanged("Defense"); }
+            set { _def = value; OnPropertyChanged(nameof(Defense)); }
         }
         public int Evade
         {
             get => _ev;
-            set { _ev = value; OnPropertyChanged("Evade"); }
+            set { _ev = value; OnPropertyChanged(nameof(Evade)); }
         }
         public int BonusAccuracy
         {
             get => _ba;
-            set { _ba = value; OnPropertyChanged("BonusAccuracy"); }
+            set { _ba = value; OnPropertyChanged(nameof(BonusAccuracy)); }
         }
 
-        
     }
 
     public class Notification : INotifyPropertyChanged
@@ -111,7 +110,7 @@ namespace Engine.Models
     interface BattleStats
     {
         int HitPoints { get; set; }
-        int StamPoints { get; set; }
+        int StaminaPoints { get; set; }
         int Attack { get; set; }
         int Defense { get; set; }
         int Evade { get; set; }
