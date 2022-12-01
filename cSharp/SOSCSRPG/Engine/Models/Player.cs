@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
@@ -54,6 +55,14 @@ namespace Engine.Models
             set { _gold = Convert.ToDecimal(value); }
         }
 
+        public ObservableCollection<GameItem> Inventory { get; set; }
+        public ObservableCollection<QuestStatus> Quests { get; set; }
+
+        public Player()
+        {
+            Inventory = new ObservableCollection<GameItem>();
+            Quests = new ObservableCollection<QuestStatus>();
+        }
     }
 
     public abstract class Stats : Notification, BattleStats
@@ -97,6 +106,7 @@ namespace Engine.Models
         }
 
     }
+
     interface BattleStats
     {
         int HitPoints { get; set; }

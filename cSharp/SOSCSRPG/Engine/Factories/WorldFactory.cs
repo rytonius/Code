@@ -29,6 +29,9 @@ namespace Engine.Factories
                                 description: "Farmer Ted lives here, you don't like him, but he pays money if you head west and kill" +
                                 "critters that keep eating his darn plants",
                                 imageName: "pack://application:,,,/Engine;component/Images/Locations/FarmHouse.jpg");
+            // farmer house quest kill snakes
+            newWorld.LocationAt(-2, 0, 0).QuestsAvailableHere.Add(QuestFactory.GetQuestByID(1));
+
             newWorld.AddLocation(xCoordinate: -3, yCoordinate: 0, zCoordinate: 0, name: "Farmer's Field 2",
                                 description: "Monsters keep stealing Farmer Gregs Grains! Get um",
                                 imageName: "pack://application:,,,/Engine;component/Images/Locations/FarmField2.jpg");

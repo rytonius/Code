@@ -18,5 +18,6 @@ namespace Engine.Models
         public string Name { get => _name; set { _name = value; OnPropertyChanged(nameof(Name));  } }
         public string Description { get => _description; set { _description = value; OnPropertyChanged(nameof(Description)); } }
         public string ImageName { get => _imageName; set { _imageName = value; OnPropertyChanged(nameof(ImageName)); } }
+        public List<Quest> QuestsAvailableHere { get; set; } = new List<Quest>();
     }
 }

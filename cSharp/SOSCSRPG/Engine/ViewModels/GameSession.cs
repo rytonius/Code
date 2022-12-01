@@ -30,6 +30,8 @@ namespace Engine.ViewModels
                 OnPropertyChanged(nameof(HasLocationToSouth));
                 OnPropertyChanged(nameof(HasLocationToUp));
                 OnPropertyChanged(nameof(HasLocationToDown));
+
+                GivePlayerQuestsAtLocation();
                 }
         }
        
@@ -60,9 +62,25 @@ namespace Engine.ViewModels
                 // init world factory and create world
                 CurrentWorld = WorldFactory.CreateWorld();
                 CurrentLocation = CurrentWorld.LocationAt(xCoordinate: 0, yCoordinate: -1, zCoordinate: 0);
-                
+
+                CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1001));
+                CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1002));
             }
 
+        }
+
+        private void GivePlayerQuestsAtLocation()
+        {
+            foreach (Quest quest in CurrentLocation.QuestsAvailableHere)
+            {
+                //We need to add “using System.Linq;”, 
+                //so we can use LINQ to search through the CurrentPlayer’s Quests list – 
+                //to ensure we don’t give the player a quest they already have (in the GivePlayerQuestsAtLocation function).
+                if (!CurrentPlayer.Quests.Any(currentquest => currentquest.PlayerQuest.ID == quest.ID))
+                {
+                    CurrentPlayer.Quests.Add(new QuestStatus(quest));
+                }
+            }
         }
         #region MoveMethodsandStuff
         public bool HasLocationToNorth => CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate +1, CurrentLocation.ZCoordinate) != null;

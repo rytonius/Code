@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPFUI"
+        xmlns:local="clr-namespace:WPFUI" xmlns:sys="clr-namespace:System;assembly=netstandard"
         mc:Ignorable="d"
         Title="Crummy but Awesome RPG" Height="880" Width="1080"
         KeyDown="Window_KeyDown">
@@ -22,7 +22,7 @@
             <Setter Property="FontSize" Value="{Binding FontSizeLabel}"/>
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
         </Style>
-        
+
         <local:IntToStringConverter x:Key="IntToStringConverterKey"/>
     </Window.Resources>
     <!--
@@ -34,19 +34,23 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*" MinHeight="512"/>
-            <RowDefinition Height="Auto" MinHeight="175" MaxHeight="275"/>
+            <RowDefinition Height="Auto" MinHeight="512"/>
+            <RowDefinition Height="*" MinHeight="175"/>
         </Grid.RowDefinitions>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" MinWidth="225"/>
             <ColumnDefinition Width="4*"/>
 
         </Grid.ColumnDefinitions>
+        <!--<GridSplitter VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="Beige" ResizeBehavior="PreviousAndNext" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" ResizeDirection="Rows" Height="25"/>-->
         <!--Menu Top bar-->
         <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Menu" VerticalAlignment="Center" Margin="4,0,0,0" Background="{StaticResource STARK}"/>
         <TextBlock Grid.Row="0" Grid.Column="1" Text="Put something here later?" HorizontalAlignment="Center"/>
         <Button Name="FontHigher" Grid.Column="1" Width="60" HorizontalAlignment="Right" Click="FontSizeMethod">Font +</Button>
         <Button Name="FontLower" Grid.Column="1" Width="60" HorizontalAlignment="Right" Margin="0,0,60,0" Click="FontSizeMethod">Font -</Button>
+        
+
         <!--Player Area top Left-->
         <Grid Grid.Row="1" Grid.Column="0" Background="{StaticResource JEWEL}">
             <Grid.RowDefinitions>
@@ -80,7 +84,6 @@
             <Label Grid.Row="2" Grid.Column="0" Content="Class:" Foreground="{StaticResource ALICEBLUE}"/>
             <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.CharacterClass}" Foreground="{StaticResource ALICEBLUE}"/>
             <Label Grid.Row="3" Grid.Column="0" Content="Level:" Foreground="{StaticResource ALICEBLUE}"/>
-            
             <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.Level, Converter={StaticResource IntToStringConverterKey}}" Foreground="{StaticResource ALICEBLUE}"/>
             <Label Grid.Row="4" Grid.Column="0" Content="XP to Level:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Reduce value to 0 to level up, next level requirements = (Level * 40) * 1.1 rounded up"/>
             <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.XPtillNextLvl, Converter={StaticResource IntToStringConverterKey}}" Foreground="{StaticResource ALICEBLUE}"/>
@@ -88,9 +91,9 @@
             <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.GoldString}" Foreground="{StaticResource ALICEBLUE}"/>
 
             <Label Grid.Row="6" Grid.Column="0" Content="Prinny Stats" Foreground="{StaticResource ALICEBLUE}" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
-            <Label Grid.Row="7" Grid.Column="0" Content="HP:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Hitpoints = 10 + (Endurance * level * 2)"/>
+            <Label Grid.Row="7" Grid.Column="0" Content="Hit Pts:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Hitpoints = 10 + (Endurance * level * 2)"/>
             <Label Grid.Row="7" Grid.Column="1" Content="{Binding CurrentPlayer.HitPoints, Converter={StaticResource IntToStringConverterKey}}" Foreground="{StaticResource ALICEBLUE}"/>
-            <Label Grid.Row="8" Grid.Column="0" Content="Stam:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Stamina Points = 10 + (Dex + Str * level)"/>
+            <Label Grid.Row="8" Grid.Column="0" Content="Stam Pts:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Stamina Points = 10 + (Dex + Str * level)"/>
             <Label Grid.Row="8" Grid.Column="1" Content="{Binding CurrentPlayer.StaminaPoints, Converter={StaticResource IntToStringConverterKey}}" Foreground="{StaticResource ALICEBLUE}"/>
             <Label Grid.Row="9" Grid.Column="0" Content="Strength:" Foreground="{StaticResource ALICEBLUE}"/>
             <Label Grid.Row="9" Grid.Column="1" Content="{Binding CurrentPlayer.Strength, Converter={StaticResource IntToStringConverterKey}}" Foreground="{StaticResource ALICEBLUE}"/>
@@ -108,10 +111,10 @@
             <Label Grid.Row="15" Grid.Column="1" Content="{Binding CurrentPlayer.Evade, Converter={StaticResource IntToStringConverterKey}}" Foreground="{StaticResource ALICEBLUE}"/>
             <Label Grid.Row="16" Grid.Column="0" Content="Accuracy:" Foreground="{StaticResource ALICEBLUE}" ToolTip="Accuracy = Dex + level, D20 + Accurace for roll ie 8 would mean 8 + d20 so 8-28 chance.  Crit happens no matter what on d20"/>
             <Label Grid.Row="16" Grid.Column="1" Content="{Binding CurrentPlayer.BonusAccuracy, Converter={StaticResource IntToStringConverterKey}}" Foreground="{StaticResource ALICEBLUE}"/>
-
         </Grid>
         <!--Game Area top right-->
         <Grid Grid.Row="1" Grid.Column="1" Background="{StaticResource VOID}">
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="2*"/>
@@ -121,14 +124,17 @@
                 <RowDefinition Height="*"/>
              
             </Grid.RowDefinitions>
+            
             <!-- This is center middle-->
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Label Foreground="LightGreen">Top left</Label>
-                <Label Grid.Row="1" Foreground="LightGreen">bottom left</Label>
+                <Label Foreground="LightGreen">Top Center</Label>
+                <Label Grid.Row="1" Foreground="LightGreen">Bottom Center</Label>
+                <Border BorderBrush="{StaticResource FUSCHIA}" Grid.RowSpan="2" BorderThickness="4,0"/>
+                <GridSplitter VerticalAlignment="bottom" HorizontalAlignment="Stretch" Background="{StaticResource FUSCHIA}" ResizeBehavior="BasedOnAlignment" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" ResizeDirection="Rows" Height="3"/>
             </Grid>
             <!-- This is center Right-->
             <Grid Grid.Column="1" Background="{StaticResource JEWEL}">
@@ -156,7 +162,38 @@
  
         </Grid>
         <!--Inventory/ Quest bottom left-->
-        <Label Grid.Row="2" Grid.Column="0" Content="Inventory/Quests" Foreground="{StaticResource ALICEBLUE}" Background="{StaticResource FUSCHIA}"/>
+        <Grid Grid.Row="2" Grid.Column="0" Background="{StaticResource FUSCHIA}">
+            <TabControl>
+                <TabItem Header="Inventory">
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.Inventory}" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" HeadersVisibility="Column">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="ToolTip">
+                                    <Setter.Value>
+                                        <TextBlock Text="{Binding Description}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+                            <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="Auto"/>
+                        </DataGrid.Columns>
+                        
+                    </DataGrid>
+
+
+                </TabItem>
+
+                <TabItem Header="Quest">
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.Quests}">
+                        
+                    </DataGrid>
+                </TabItem>
+
+            </TabControl>
+            
+        </Grid>
         <Grid Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="10*"/>
@@ -175,7 +212,7 @@
             </Grid.ColumnDefinitions>
             <Border BorderBrush="{StaticResource JEWEL}" BorderThickness="0, 0, 0, 0" />
         <!--Direction movement-->
-            <Grid x:Name="DirectionGrid" Grid.Column="1" TextBlock.FontStyle="Italic">
+            <Grid x:Name="DirectionGrid" Grid.Column="1" TextBlock.FontSize="14" TextBlock.FontStyle="Italic">
                 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -189,17 +226,46 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="NorthButton" Content="North" Grid.Row="0" Grid.Column="1"  Height="25" Width="65" Margin="10" Click="OnClick_North" Visibility="{Binding HasLocationToNorth, Converter={StaticResource BooleanToVisibility}}">
-                    
+                <Grid.Resources>
+                    <sys:Double x:Key="ButtonWidth">80</sys:Double>
+                    <sys:Double x:Key="ButtonHeight">36</sys:Double>
+                </Grid.Resources>
+
+                <Button x:Name="NorthButton" Grid.Row="0" Grid.Column="1" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Margin="10" Click="OnClick_North" Visibility="{Binding HasLocationToNorth, Converter={StaticResource BooleanToVisibility}}">
+                    <Span>North
+                        <Run FontStyle="Normal" FontWeight="Bold" Text="[W]"/>
+                    </Span>
                 </Button>
-                <Button Content="West" Grid.Row="1" Grid.Column="0" Height="25" Width="65" Margin="10" Click="OnClick_West" Visibility="{Binding HasLocationToWest, Converter={StaticResource BooleanToVisibility}}"/>
-                <Button Content="East" Grid.Row="1" Grid.Column="2"  Height="25" Width="65" Margin="10" Click="OnClick_East" Visibility="{Binding HasLocationToEast, Converter={StaticResource BooleanToVisibility}}"/>
-                <Button Content="South" Grid.Row="2" Grid.Column="1" Height="25" Width="65" Margin="10" Click="OnClick_South" Visibility="{Binding HasLocationToSouth, Converter={StaticResource BooleanToVisibility}}"/>
-                <Button Content="Up" Grid.Row="0" Grid.Column="0" Height="25" Width="65" Margin="10" Click="OnClick_Up" Visibility="{Binding HasLocationToUp, Converter={StaticResource BooleanToVisibility}}"/>
-                <Button Content="Down" Grid.Row="2" Grid.Column="0"  Height="25" Width="65" Margin="10" Click="OnClick_Down" Visibility="{Binding HasLocationToDown, Converter={StaticResource BooleanToVisibility}}"/>
-                <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="center" FontWeight="Bold" FontStyle="Normal" FontSize="16"><Span FontWeight="Normal">x: <Run FontWeight="Bold" Text="{Binding CurrentLocation.XCoordinate}"/></Span>
-                <Span FontWeight="Normal">y: <Run FontWeight="Bold" Text="{Binding CurrentLocation.YCoordinate}"/></Span>
-                <Span FontWeight="Normal">z: <Run FontWeight="Bold" Text="{Binding CurrentLocation.ZCoordinate}"/></Span></TextBlock>
+                <Button Grid.Row="1" Grid.Column="0"  Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Margin="10" Click="OnClick_West" Visibility="{Binding HasLocationToWest, Converter={StaticResource BooleanToVisibility}}">
+                    <Span>West
+                        <Run FontStyle="Normal" FontWeight="Bold" Text="[A]"/>
+                    </Span>
+                </Button>
+                <Button Grid.Row="1" Grid.Column="2"   Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Margin="10" Click="OnClick_East" Visibility="{Binding HasLocationToEast, Converter={StaticResource BooleanToVisibility}}">
+                    <Span>East
+                        <Run FontStyle="Normal" FontWeight="Bold" Text="[D]"/>
+                    </Span>
+                </Button>
+                <Button Grid.Row="2" Grid.Column="1"  Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Margin="10" Click="OnClick_South" Visibility="{Binding HasLocationToSouth, Converter={StaticResource BooleanToVisibility}}">
+                    <Span>South
+                        <Run FontStyle="Normal" FontWeight="Bold" Text="[S]"/>
+                    </Span>
+                </Button>
+                <Button Grid.Row="0" Grid.Column="0"  Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Margin="10" Click="OnClick_Up" Visibility="{Binding HasLocationToUp, Converter={StaticResource BooleanToVisibility}}">
+                    <Span>Up
+                        <Run FontStyle="Normal" FontWeight="Bold" Text="[Q]"/>
+                    </Span>
+                </Button>
+                <Button Grid.Row="2" Grid.Column="0"   Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Margin="10" Click="OnClick_Down" Visibility="{Binding HasLocationToDown, Converter={StaticResource BooleanToVisibility}}">
+                    <Span>Down
+                        <Run FontStyle="Normal" FontWeight="Bold" Text="[Z]"/>
+                    </Span>
+                </Button>
+                <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="center" FontWeight="Bold" FontStyle="Normal" FontSize="16">
+                    <Span FontWeight="Normal">x: <Run FontWeight="Bold" Text="{Binding CurrentLocation.XCoordinate}"/></Span>
+                    <Span FontWeight="Normal">y: <Run FontWeight="Bold" Text="{Binding CurrentLocation.YCoordinate}"/></Span>
+                    <Span FontWeight="Normal">z: <Run FontWeight="Bold" Text="{Binding CurrentLocation.ZCoordinate}"/></Span>
+                </TextBlock>
                 <!-- this is so dumb, has to be a better way to do this -->
                 <Border BorderBrush="{StaticResource FUSCHIA}" BorderThickness="1" Grid.Column="0" Grid.Row="0" CornerRadius="0, 0, 25, 0"/>
                 <Border BorderBrush="{StaticResource FUSCHIA}" BorderThickness="1" Grid.Column="1" Grid.Row="0" CornerRadius="0, 0, 25, 25"/>

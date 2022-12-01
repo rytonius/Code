@@ -100,7 +100,7 @@ namespace WPFUI
                     break;
                 case Key.A: _gameSession.MoveWest();
                     break;
-                case Key.E: _gameSession.MoveEast();
+                case Key.D: _gameSession.MoveEast();
                     break;
                 case Key.Q: _gameSession.MoveUp();
                     break;

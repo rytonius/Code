@@ -10,15 +10,13 @@ namespace Engine.Models
     {
         public int Dice { get; set; }
         public int Roll { get; set; }
-        public string Description { get; set; }
         public int Quality { get; set; }
         public Weapon(int itemTypeID, string name, int price, int dice, int roll,
                       string description, int quality)
-            : base(itemTypeID, name, price)
+            : base(itemTypeID, name, price, description)
         {
             Dice = dice;
             Roll = roll;
-            Description = description;
             Quality = quality;
         }
 
