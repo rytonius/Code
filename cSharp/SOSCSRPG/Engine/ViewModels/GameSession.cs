@@ -47,25 +47,24 @@ namespace Engine.ViewModels
                     GoldString = "10.00"
 
                 };
-                // initialize secondary stats
-
-                CurrentPlayer.HitPoints += 10 + (CurrentPlayer.Endurance * 2);
-                CurrentPlayer.StaminaPoints += 10 + (CurrentPlayer.Dexterity + CurrentPlayer.Strength);
-                CurrentPlayer.Attack += CurrentPlayer.Strength * 2 + CurrentPlayer.Dexterity;
-                CurrentPlayer.Defense += CurrentPlayer.Dexterity + CurrentPlayer.Endurance * 2;
-                CurrentPlayer.Evade += CurrentPlayer.Dexterity;
-                CurrentPlayer.BonusAccuracy += CurrentPlayer.Dexterity;
-                CurrentPlayer.XPtillNextLvl = (int)Math.Round((CurrentPlayer.Level * 40f) * (1.1f), 0);
+                // initialize secondary stats, have to seperate so that you can use the starting stats
+                {
+                    CurrentPlayer.HitPoints += 10 + (CurrentPlayer.Endurance * 2);
+                    CurrentPlayer.StaminaPoints += 10 + (CurrentPlayer.Dexterity + CurrentPlayer.Strength);
+                    CurrentPlayer.Attack += CurrentPlayer.Strength * 2 + CurrentPlayer.Dexterity;
+                    CurrentPlayer.Defense += CurrentPlayer.Dexterity + CurrentPlayer.Endurance * 2;
+                    CurrentPlayer.Evade += CurrentPlayer.Dexterity;
+                    CurrentPlayer.BonusAccuracy += CurrentPlayer.Dexterity;
+                    CurrentPlayer.XPtillNextLvl = (int)Math.Round((CurrentPlayer.Level * 40f) * (1.1f), 0);
+                }
                 // init world factory and create world
-                WorldFactory factory = new WorldFactory();
-                CurrentWorld = factory.CreateWorld();
-
+                CurrentWorld = WorldFactory.CreateWorld();
                 CurrentLocation = CurrentWorld.LocationAt(xCoordinate: 0, yCoordinate: -1, zCoordinate: 0);
                 
             }
 
         }
-
+        #region MoveMethodsandStuff
         public bool HasLocationToNorth => CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate +1, CurrentLocation.ZCoordinate) != null;
         public bool HasLocationToWest => CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate) != null;
         public bool HasLocationToEast => CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate) != null;
@@ -74,36 +73,38 @@ namespace Engine.ViewModels
         public bool HasLocationToDown => CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate - 1) != null;
         public void MoveNorth()
         {
-
-            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1, CurrentLocation.ZCoordinate);
-            
+            if (HasLocationToNorth)
+                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1, CurrentLocation.ZCoordinate);
         }
         public void MoveWest()
         {
-            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate);
-            
+            if (HasLocationToWest)
+                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate);
         }
         public void MoveEast()
         {
-            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate);
-            
+            if (HasLocationToEast)
+                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate);
+
         }
         public void MoveSouth()
         {
-            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1, CurrentLocation.ZCoordinate);
-            
+            if (HasLocationToSouth)
+                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1, CurrentLocation.ZCoordinate);
         }
         public void MoveUp()
         {
-            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate + 1);
-           
+            if (HasLocationToUp)
+                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate + 1);
+
         }
         public void MoveDown()
         {
-            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate - 1);
-            
-        }
+            if (HasLocationToDown)
+                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate, CurrentLocation.ZCoordinate - 1);
 
+        }
+        #endregion
         #region font
         int _fontSizeLabel = 14;
         //int _leftSideGridSize = 225;

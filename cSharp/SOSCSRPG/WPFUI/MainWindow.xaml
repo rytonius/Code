@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUI"
         mc:Ignorable="d"
-        Title="Crummy but Awesome RPG" Height="880" Width="1080">
+        Title="Crummy but Awesome RPG" Height="880" Width="1080"
+        KeyDown="Window_KeyDown">
+       
     <Window.Resources>
-        <SolidColorBrush x:Key="FUSCHIA" Color="#A239CA"/>
-        <SolidColorBrush x:Key="JEWEL" Color="#4717F6"/>
+        <SolidColorBrush x:Key="FUSCHIA" Color="#B031B7"/>
+        <SolidColorBrush x:Key="JEWEL" Color="#3011D1"/>
         <SolidColorBrush x:Key="VOID" Color="#0E0B16"/>
         <SolidColorBrush x:Key="STARK" Color="#E7DFDD"/>
         <SolidColorBrush x:Key="ALICEBLUE" Color="AliceBlue"/>
@@ -20,16 +22,20 @@
             <Setter Property="FontSize" Value="{Binding FontSizeLabel}"/>
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
         </Style>
-
+        
         <local:IntToStringConverter x:Key="IntToStringConverterKey"/>
     </Window.Resources>
-
-    
+    <!--
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding Window_KeyDown}" Key="Up"/>
+    </Window.InputBindings>
+    -->
+     
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="225"/>
+            <RowDefinition Height="*" MinHeight="512"/>
+            <RowDefinition Height="Auto" MinHeight="175" MaxHeight="275"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" MinWidth="225"/>
@@ -130,17 +136,19 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" Grid.Column="1" BorderBrush="#372EC9" BorderThickness="1">
+                <Border Grid.Row="0" Grid.Column="1" BorderBrush="{StaticResource FUSCHIA}" BorderThickness="0, 2, 0, 2">
                     <Grid Grid.Row="0">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
 
                         </Grid.RowDefinitions>
-                        <TextBlock x:Name="LocationName" Grid.Row="0" Text="{Binding CurrentLocation.Name , FallbackValue='Name'}" HorizontalAlignment="Center" Foreground="{StaticResource ALICEBLUE}"></TextBlock>
-                        <Image Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="256" Height="256" Source="{Binding CurrentLocation.ImageName}" d:Source="pack://application:,,,/Engine;component/Images/Locations/Home.jpg" Stretch="Uniform" StretchDirection="Both" Margin="0,0,0,0"/>
-                        <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="{Binding CurrentLocation.Description}" d:Text="Description"  TextWrapping="Wrap" Foreground="{StaticResource ALICEBLUE}"></TextBlock>
+                        <Label x:Name="LocationName" Grid.Row="0" Content="{Binding CurrentLocation.Name , FallbackValue='Name'}" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="{StaticResource ALICEBLUE}" FontFamily="Cascadia Code"></Label>
+                        <Image Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" MaxWidth="512" MinWidth="128" MaxHeight="512" MinHeight="128" Source="{Binding CurrentLocation.ImageName}" d:Source="pack://application:,,,/Engine;component/Images/Locations/Home.jpg" Stretch="Uniform" StretchDirection="Both" Margin="4,0,4,0"/>
+                        <Label Grid.Row="2" HorizontalAlignment="Center" Foreground="{StaticResource ALICEBLUE}" FontFamily="Cascadia Code">
+                            <TextBlock TextWrapping="Wrap" Text="{Binding CurrentLocation.Description}" d:Text="Description" FontSize="{Binding FontSizeLabel}"/>
+                        </Label>
                     </Grid>
                 </Border>
             </Grid>
@@ -157,7 +165,7 @@
             <Button Grid.Row="2" Content="Gain 10 Xp" Click="XPButtonBase_OnClick"/>
         </Grid>
         <!--Combat movement bottom Right-->
-        <Grid Grid.Row="2" Grid.Column="1" Background="{StaticResource STARK}">
+        <Grid Grid.Row="2" Grid.Column="1" Background="{StaticResource STARK}" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -165,19 +173,25 @@
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
+            <Border BorderBrush="{StaticResource JEWEL}" BorderThickness="0, 0, 0, 0" />
         <!--Direction movement-->
-            <Grid Grid.Column="1" TextBlock.FontStyle="Italic">
+            <Grid x:Name="DirectionGrid" Grid.Column="1" TextBlock.FontStyle="Italic">
+                
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+                    
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Content="North" Grid.Row="0" Grid.Column="1"  Height="25" Width="65" Margin="10" Click="OnClick_North" Visibility="{Binding HasLocationToNorth, Converter={StaticResource BooleanToVisibility}}"/>
+
+                <Button x:Name="NorthButton" Content="North" Grid.Row="0" Grid.Column="1"  Height="25" Width="65" Margin="10" Click="OnClick_North" Visibility="{Binding HasLocationToNorth, Converter={StaticResource BooleanToVisibility}}">
+                    
+                </Button>
                 <Button Content="West" Grid.Row="1" Grid.Column="0" Height="25" Width="65" Margin="10" Click="OnClick_West" Visibility="{Binding HasLocationToWest, Converter={StaticResource BooleanToVisibility}}"/>
                 <Button Content="East" Grid.Row="1" Grid.Column="2"  Height="25" Width="65" Margin="10" Click="OnClick_East" Visibility="{Binding HasLocationToEast, Converter={StaticResource BooleanToVisibility}}"/>
                 <Button Content="South" Grid.Row="2" Grid.Column="1" Height="25" Width="65" Margin="10" Click="OnClick_South" Visibility="{Binding HasLocationToSouth, Converter={StaticResource BooleanToVisibility}}"/>
@@ -186,8 +200,20 @@
                 <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="center" FontWeight="Bold" FontStyle="Normal" FontSize="16"><Span FontWeight="Normal">x: <Run FontWeight="Bold" Text="{Binding CurrentLocation.XCoordinate}"/></Span>
                 <Span FontWeight="Normal">y: <Run FontWeight="Bold" Text="{Binding CurrentLocation.YCoordinate}"/></Span>
                 <Span FontWeight="Normal">z: <Run FontWeight="Bold" Text="{Binding CurrentLocation.ZCoordinate}"/></Span></TextBlock>
-
+                <!-- this is so dumb, has to be a better way to do this -->
+                <Border BorderBrush="{StaticResource FUSCHIA}" BorderThickness="1" Grid.Column="0" Grid.Row="0" CornerRadius="0, 0, 25, 0"/>
+                <Border BorderBrush="{StaticResource FUSCHIA}" BorderThickness="1" Grid.Column="1" Grid.Row="0" CornerRadius="0, 0, 25, 25"/>
+                <Border BorderBrush="{StaticResource FUSCHIA}" BorderThickness="1" Grid.Column="2" Grid.Row="0" CornerRadius="0, 0, 0, 25" Background="{StaticResource FUSCHIA}"/>
+                <Border BorderBrush="{StaticResource FUSCHIA}" BorderThickness="1" Grid.Column="0" Grid.Row="1" CornerRadius="0, 25, 25, 0"/>
+                <Border BorderBrush="{StaticResource FUSCHIA}" BorderThickness="1" Grid.Column="1" Grid.Row="1" CornerRadius="25"/>
+                <Border BorderBrush="{StaticResource FUSCHIA}" BorderThickness="1" Grid.Column="2" Grid.Row="1" CornerRadius="25, 0,0, 25"/>
+                <Border BorderBrush="{StaticResource FUSCHIA}" BorderThickness="1" Grid.Column="0" Grid.Row="2" CornerRadius="0, 25,0, 0"/>
+                <Border BorderBrush="{StaticResource FUSCHIA}" BorderThickness="1" Grid.Column="1" Grid.Row="2" CornerRadius="25, 25,0, 0"/>
+                <Border BorderBrush="{StaticResource FUSCHIA}" BorderThickness="1" Grid.Column="2" Grid.Row="2" CornerRadius="25, 0,0, 0" Background="{StaticResource FUSCHIA}"/>
+                
+                
             </Grid>
+            
         </Grid>
 
     </Grid>

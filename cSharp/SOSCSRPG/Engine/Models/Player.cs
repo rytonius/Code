@@ -97,16 +97,6 @@ namespace Engine.Models
         }
 
     }
-
-    public class Notification : INotifyPropertyChanged
-    {   // required to notify when a value changes to update the WPFUI
-        public event PropertyChangedEventHandler? PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-    }
-
     interface BattleStats
     {
         int HitPoints { get; set; }
