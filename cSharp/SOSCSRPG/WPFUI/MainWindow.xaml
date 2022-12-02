@@ -151,7 +151,7 @@
 
                         </Grid.RowDefinitions>
                         <Label x:Name="LocationName" Grid.Row="0" Content="{Binding CurrentLocation.Name , FallbackValue='Name'}" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="{StaticResource ALICEBLUE}" FontFamily="Cascadia Code"></Label>
-                        <Image Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" MaxWidth="512" MinWidth="128" MaxHeight="512" MinHeight="128" Source="{Binding CurrentLocation.ImageName}" d:Source="pack://application:,,,/Engine;component/Images/Locations/Home.jpg" Stretch="Uniform" StretchDirection="Both" Margin="4,0,4,0"/>
+                        <Image Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" MaxWidth="512" MinWidth="128" MaxHeight="512" MinHeight="128" Source="{Binding CurrentLocation.ImageName}" d:Source="pack://application:,,,/Engine;component/Images/Monsters/Cult_Abomination1.png" Stretch="Uniform" StretchDirection="Both" Margin="4,0,4,0"/>
                         <Label Grid.Row="2" HorizontalAlignment="Center" Foreground="{StaticResource ALICEBLUE}" FontFamily="Cascadia Code">
                             <TextBlock TextWrapping="Wrap" Text="{Binding CurrentLocation.Description}" d:Text="Description" FontSize="{Binding FontSizeLabel}"/>
                         </Label>
@@ -186,8 +186,20 @@
                 </TabItem>
 
                 <TabItem Header="Quest">
-                    <DataGrid ItemsSource="{Binding CurrentPlayer.Quests}">
-                        
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.Quests}" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" HeadersVisibility="Column">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="ToolTip">
+                                    <Setter.Value>
+                                        <TextBlock Text="{Binding PlayerQuest.Description}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Binding="{Binding PlayerQuest.Name}" Width="*"/>
+                            <DataGridTextColumn Header="Done?" Binding="{Binding IsCompleted}" Width="Auto"/>
+                        </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
 

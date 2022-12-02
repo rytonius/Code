@@ -55,28 +55,82 @@
     <None Remove="Images\Locations\TownSquare.jpg" />
     <None Remove="Images\Locations\TradingShop.jpg" />
     <None Remove="Images\Locations\TradingShopEntrance.jpg" />
+    <None Remove="Images\Monsters\Cultist_leader.png" />
+    <None Remove="Images\Monsters\Cult_Abomination1.png" />
+    <None Remove="Images\Monsters\Enemy1.jpg" />
+    <None Remove="Images\Monsters\snake.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\Locations\DeathTower.jpg" />
-    <Resource Include="Images\Locations\EntranceGate.jpg" />
-    <Resource Include="Images\Locations\ExitGate.jpg" />
-    <Resource Include="Images\Locations\FarmField.jpg" />
-    <Resource Include="Images\Locations\FarmField2.jpg" />
-    <Resource Include="Images\Locations\FarmHouse.jpg" />
-    <Resource Include="Images\Locations\ForestAreaHome.jpg" />
-    <Resource Include="Images\Locations\GardenHerbalist2.jpg" />
-    <Resource Include="Images\Locations\HerbalistGarden.jpg" />
-    <Resource Include="Images\Locations\HerbalistHut.jpg" />
-    <Resource Include="Images\Locations\home.jpg" />
-    <Resource Include="Images\Locations\MountainSide.jpg" />
-    <Resource Include="Images\Locations\RoadFarmLand.jpg" />
-    <Resource Include="Images\Locations\SpiderForestEnd.jpg" />
-    <Resource Include="Images\Locations\SpiderForestEntrance.jpg" />
-    <Resource Include="Images\Locations\SpiderForrestMiddle.jpg" />
-    <Resource Include="Images\Locations\TownSquare.jpg" />
-    <Resource Include="Images\Locations\TradingShop.jpg" />
-    <Resource Include="Images\Locations\TradingShopEntrance.jpg" />
+    <Resource Include="Images\Locations\DeathTower.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Locations\EntranceGate.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Locations\ExitGate.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Locations\FarmField.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Locations\FarmField2.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Locations\FarmHouse.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Locations\ForestAreaHome.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Locations\GardenHerbalist2.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Locations\HerbalistGarden.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Locations\HerbalistHut.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Locations\home.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Locations\MountainSide.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Locations\RoadFarmLand.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Locations\SpiderForestEnd.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Locations\SpiderForestEntrance.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Locations\SpiderForrestMiddle.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Locations\TownSquare.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Locations\TradingShop.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Locations\TradingShopEntrance.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Monsters\Cult_Abomination1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Monsters\Cultist_leader.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Monsters\Enemy1.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Monsters\snake.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

@@ -21,7 +21,7 @@ namespace Engine.Factories
             rewardItems.Add(new ItemQuantity(1002, 1));
 
             // create teh quest
-            _quests.Add(new Quest(id: 1, name: "Clear the Farmers Field", description: "Defeat snakes for Farmer Gred/Ted, I forget his name", 
+            _quests.Add(new Quest(id: 1, name: "Clear the Farmers Field 2", description: "Defeat snakes for Farmer Grant, West of his House", 
                 itemsToComplete: itemsToComplete, rewardExperiencePoints: 25, rewardCurrency: 10, rewardItems: rewardItems));
         }
 
