@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Structs.csproj",
+                "${workspaceFolder}/Structs_Enums.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/Structs.csproj",
+                "${workspaceFolder}/Structs_Enums.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/Structs.csproj"
+                "${workspaceFolder}/Structs_Enums.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
