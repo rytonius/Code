@@ -37,45 +37,47 @@ namespace Structs_Enums
 
            
 
-            Console.WriteLine("\nfirst x: {0} - third y: {1}\n Checking memory usage with struct alone", first.X, third.Y);
-            Console.WriteLine("Total Allocated Bytes: {0:N2} KB", (GC.GetTotalAllocatedBytes() * 0.001));
-            Console.WriteLine("total commited bytes: {0}", GC.GetGCMemoryInfo().TotalCommittedBytes );
-            Console.WriteLine("total Heap bytes: {0}", GC.GetGCMemoryInfo().HeapSizeBytes);
+            WriteLine("\nfirst x: {0} - third y: {1}\n Checking memory usage with struct alone", first.X, third.Y);
+            WriteLine("Total Allocated Bytes: {0:N2} KB", (GC.GetTotalAllocatedBytes() * 0.001));
+            WriteLine("total commited bytes: {0}", GC.GetGCMemoryInfo().TotalCommittedBytes );
+            WriteLine("total Heap bytes: {0}", GC.GetGCMemoryInfo().HeapSizeBytes);
 
-            Console.WriteLine("Total Memory {0}\n Allocating a Class now which will be in heap\n", GC.GetTotalMemory(true));
+            WriteLine("Total Memory {0}\n Allocating a Class now which will be in heap\n", GC.GetTotalMemory(true));
 
             Nice x = new Nice();
             x.X = 3;
             int y = x.X;
 
-            Console.WriteLine("Total Allocated KBytes: {0:N2} KB", (GC.GetTotalAllocatedBytes() * 0.001));
-            Console.WriteLine("total commited Kbytes: {0:N2} KB", (GC.GetGCMemoryInfo().TotalCommittedBytes * 0.001));
-            Console.WriteLine("total Heap Kbytes: {0:N2} KB", (GC.GetGCMemoryInfo().HeapSizeBytes * 0.001));
+            WriteLine("Total Allocated KBytes: {0:N2} KB", (GC.GetTotalAllocatedBytes() * 0.001));
+            WriteLine("total commited Kbytes: {0:N2} KB", (GC.GetGCMemoryInfo().TotalCommittedBytes * 0.001));
+            WriteLine("total Heap Kbytes: {0:N2} KB", (GC.GetGCMemoryInfo().HeapSizeBytes * 0.001));
 
-            Console.WriteLine("Total Memory {0:N2} KB", (GC.GetTotalMemory(true) * 0.001));
+            WriteLine("Total Memory {0:N2} KB", (GC.GetTotalMemory(true) * 0.001));
             
             Point fourth = first;
-            Console.WriteLine("\nAdded another structure\n");
-            Console.WriteLine("Total Allocated KBytes: {0:N2} KB", (GC.GetTotalAllocatedBytes() * 0.001));
-            Console.WriteLine("total commited Kbytes: {0:N2} KB", (GC.GetGCMemoryInfo().TotalCommittedBytes * 0.001));
-            Console.WriteLine("total Heap Kbytes: {0:N2} KB", (GC.GetGCMemoryInfo().HeapSizeBytes * 0.001));
+            WriteLine("\nAdded another structure\n");
+            WriteLine("Total Allocated KBytes: {0:N2} KB", (GC.GetTotalAllocatedBytes() * 0.001));
+            WriteLine("total commited Kbytes: {0:N2} KB", (GC.GetGCMemoryInfo().TotalCommittedBytes * 0.001));
+            WriteLine("total Heap Kbytes: {0:N2} KB", (GC.GetGCMemoryInfo().HeapSizeBytes * 0.001));
 
-            Console.WriteLine("Total Memory {0:N2} KB", (GC.GetTotalMemory(true) * 0.001));
-            Console.WriteLine("\nstruct with constructor\n");
+            WriteLine("Total Memory {0:N2} KB", (GC.GetTotalMemory(true) * 0.001));
+            WriteLine("\nstruct with constructor\n");
 
             CPoint Fifth= new CPoint(3, 5);
-            Console.WriteLine($"Fifth.x: {Fifth.X}, Fifth.y: {Fifth.Y}\n");
+            WriteLine($"Fifth.x: {Fifth.X}, Fifth.y: {Fifth.Y}\n");
 
             WriteLine("\nEnums\n");
             EnumerationsClass.RunMethod();
 
-                   Console.WriteLine("\nEnum Stuff\n");
-            Console.WriteLine("Total Allocated KBytes: {0:N2} KB", (GC.GetTotalAllocatedBytes() * 0.001));
-            Console.WriteLine("total commited Kbytes: {0:N2} KB", (GC.GetGCMemoryInfo().TotalCommittedBytes * 0.001));
-            Console.WriteLine("total Heap Kbytes: {0:N2} KB", (GC.GetGCMemoryInfo().HeapSizeBytes * 0.001));
+            WriteLine("\nEnum Stuff\n");
+            WriteLine("Total Allocated KBytes: {0:N2} KB", (GC.GetTotalAllocatedBytes() * 0.001));
+            WriteLine("total commited Kbytes: {0:N2} KB", (GC.GetGCMemoryInfo().TotalCommittedBytes * 0.001));
+            WriteLine("total Heap Kbytes: {0:N2} KB", (GC.GetGCMemoryInfo().HeapSizeBytes * 0.001));
 
-            Console.WriteLine("Total Memory {0:N2} KB", (GC.GetTotalMemory(true) * 0.001));
-            Console.WriteLine("\nstruct with constructor\n");
+            WriteLine("Total Memory {0:N2} KB", (GC.GetTotalMemory(true) * 0.001));
+            
+            WriteLine("\nBitFlagsExample\n");
+            BitFlagsExample.RunIt();
         }
     }
 }
