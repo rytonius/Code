@@ -20,3 +20,4 @@ WriteLine("\n InstantiatingAndAccess");
 IAA.InitArray();
 IAA.WriteArrayValues();
 IAA.PuttingItAllTogether();
+IAA.JaggedArraysAreSilly();
