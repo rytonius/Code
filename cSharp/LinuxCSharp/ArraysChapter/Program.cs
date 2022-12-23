@@ -14,10 +14,19 @@ using ArraysChapter;
 //          in all dimensions, is called the length of the array.
 
 //Arrays can store value or reference types.  
-
+// useful members, Rank, Length, GetLength, Clear, Sort, 
+// BinarySearch, Clone, IndexOf, Reverse, GetUpperBound
 InstantiatingAndAccess IAA = new InstantiatingAndAccess();
 WriteLine("\n InstantiatingAndAccess");
 IAA.InitArray();
 IAA.WriteArrayValues();
 IAA.PuttingItAllTogether();
 IAA.JaggedArraysAreSilly();
+IAA.foreachArrays();
+IAA.ForeachRectangleArray(17, 18, 99, 30);
+IAA.ExampleJaggedArrayForEach();
+WriteLine("\n ArrayMembers\n");
+ArrayMembers AM = new ArrayMembers();
+AM.runit();
+WriteLine("\nRefReturnRefLocalArrays\n");
+RefReturnRefLocalArrays.RunIt();

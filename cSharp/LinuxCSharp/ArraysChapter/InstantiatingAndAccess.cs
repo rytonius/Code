@@ -83,5 +83,107 @@ namespace ArraysChapter
                 WriteLine("");
             }
         }
+
+        
+        public void foreachArrays() {
+            WriteLine("\nForeach Arrays\n");
+            int[] Arrrg1 = {10, 11, 12, 130};
+            foreach (int lilarrrg in Arrrg1) {
+                WriteLine($"Item Value: {lilarrrg}");
+            }
+
+            MyClass[] mcArray = new MyClass[4]; //Create Array
+            for (int i = 0; i < 4; i++) {
+                mcArray[i] = new MyClass();     // Create Class Objects
+                mcArray[i].MyField = i;         // Set Field
+            }
+
+            foreach (MyClass item in mcArray) {
+                item.MyField += 10;             // Change the data since it's data from the reference
+                WriteLine($"{ item.MyField}");
+            }
+                
+            
+        }
+
+        public void ForeachRectangleArray(int x, int y, int a, int b) {
+            int total = 0;
+            int[,] arr1 = { {x, y}, {a,b}};
+
+            foreach( int element in arr1 ) {
+                total += element;
+                WriteLine($"ELement: { element}, Current Total: { total }");
+            }
+        }
+
+        public void ExampleJaggedArrayForEach() {
+            int total       = 0;
+            int[][] arr1    = new int[2][];
+            arr1[0]         = new int[] {10, 11};
+            arr1[1]         = new int[] {100,110,120};
+
+            foreach (int[] array in arr1) //proccess the top level
+            {
+                WriteLine("\nStarting new array: {0}", array);
+                foreach (int item in array) //process the second level 
+                {
+                    total += item;
+                    WriteLine($"  Item: {item}, Current Total: {total}");
+                }
+            }
+
+            var result = Array.Find<int>( arr1[0], element => element == 10);
+            WriteLine(result);
+        }
+    }
+    class MyClass {
+            public int MyField = 0;
+        }
+
+    public class ArrayMembers {
+        public static void PrintArray(int[] a ) {
+            foreach (var x in a)
+                Write($"{x} ");
+            WriteLine("");
+        }
+
+        public void runit() 
+        {
+            int[] arr = new int[] {15 , 20, 5, 25, 10 };
+            PrintArray(arr);
+            Array.Sort(arr);
+            PrintArray(arr);
+            Array.Reverse(arr);
+            PrintArray(arr);
+
+            WriteLine();
+            WriteLine($"Rank = {arr.Rank}, Length = {arr.Length}");
+            WriteLine($"GetLength(0)    = { arr.GetLength(0) }");
+            WriteLine($"GetType()       = {arr.GetType() }");
+
+            WriteLine("\nClone Method\n");
+            CloneValueMethod(arr);
+            CloneReferenceMethod();
+        }
+
+        public void CloneValueMethod(int[] arr1) {
+            int[] intArray = (int[]) arr1.Clone();
+
+            PrintArray(intArray); // value based, will have duplicate entries
+        }
+
+        public void CloneReferenceMethod() {
+            MyClass[] AArray1 = new MyClass[3] { new MyClass(), new MyClass(),new MyClass() };
+            MyClass[] AArray2 = (MyClass[]) AArray1.Clone(); // array2 is just a pointer to array1
+
+            for (int i = 0; i < AArray2.Length; i++) {
+                AArray2[i].MyField = (1 + i) * 100; 
+            }
+            int k = 0;
+            foreach (MyClass element in AArray2) {
+                WriteLine($"MyClass.MyField[{k++}]: {element.MyField}");
+            }
+
+        }
     }
 }
