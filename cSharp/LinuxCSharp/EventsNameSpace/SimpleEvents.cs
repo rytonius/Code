@@ -45,15 +45,17 @@ namespace SimpleEvents
         {
             cat.OnHealthChanged += (sender, _health) =>
             {
-                Cat cat = (Cat)sender;
-                if (cat.Health > 0)
-                    Console.WriteLine($"ID: {(cat).ID} cat: {cat.Name} now has health: {cat.Health}");
+                Cat? cat = (Cat?)sender;
+                if (cat != null)
+                    if (cat.Health > 0)
+                        Console.WriteLine($"ID: {(cat).ID} cat: {cat.Name} now has health: {cat.Health}");
             };
             cat2.OnHealthChanged += (sender, _health) =>
             {
-                Cat cat = (Cat)sender;
-                if (cat.Health > 0)
-                    Console.WriteLine($"ID: {(cat).ID} cat: {cat.Name} now has health: {cat.Health}");
+                Cat? cat = (Cat?)sender;
+                if (cat != null)
+                    if (cat.Health > 0) 
+                        Console.WriteLine($"ID: {(cat).ID} cat: {cat.Name} now has health: {cat.Health}");
             };
             List<Cat> ListCats = new List<Cat>();
             ListCats.Add(cat);
@@ -74,7 +76,7 @@ namespace SimpleEvents
         private static void OnDead(object? sender, int _health)
         {
 
-            Cat cat = (Cat)sender;
+            Cat? cat = (Cat?)sender;
             if (cat.Health <= 0)
                 Console.WriteLine($"ID: {(cat).ID} cat: {cat.Name} Health: {cat.Health} has perished");
 

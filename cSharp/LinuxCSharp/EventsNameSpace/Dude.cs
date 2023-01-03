@@ -21,23 +21,31 @@ namespace EventsDude
             }
         }
 
-        public Dude() {
-            this.OnMoneyChange += (source, e) => {
-                Console.WriteLine($"ID: {this.ID} has ${e}");
-                };
+        // public Dude()
+        // {
+        //     this.OnMoneyChange += (source, e) =>
+        //     {
+        //         Console.WriteLine($"ID: {this.ID} has ${e}");
+        //     };
+        // }
+
+        public Dude(EventHandler<int> moneyChangeHandler)
+        {
+            this.OnMoneyChange += moneyChangeHandler;
         }
+
     }
 
     public class Program
     {
         public void Main()
         {
-            Dude dude1 = new Dude()
+            Dude dude1 = new Dude(moneyChangeHandler)
             {
                 ID = 1,
                 Money = 200
             };
-            Dude dude2 = new Dude()
+            Dude dude2 = new Dude(moneyChangeHandler)
             {
                 ID = 2,
                 Money = 400
@@ -49,5 +57,13 @@ namespace EventsDude
         }
 
 
+        void moneyChangeHandler(object? sender, int e)
+        {
+            Dude? d = (Dude?)sender;
+            if (d != null)
+                Console.WriteLine($"{sender} ID: {d.ID} has ${e} ");
+        }
+
     }
 }
+

@@ -24,3 +24,11 @@ SC.RunIt();
 
 EventsDude.Program EDD = new EventsDude.Program();
 EDD.Main();
+
+WriteLine("\nExtendingEventArgs\n");
+ExtendingEventArgs.Program EEAP = new ExtendingEventArgs.Program();
+EEAP.Main();
+
+WriteLine("\nRemovingEventArgs\n");
+RemovingEventhandlers.Program REHP = new RemovingEventhandlers.Program();
+REHP.Main();

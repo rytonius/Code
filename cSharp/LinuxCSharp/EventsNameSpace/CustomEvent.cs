@@ -8,7 +8,7 @@ namespace EventsNameCustom
     class Employee
     {
         public delegate void PropertyChangedHandler(object sender, PropertyChangeEventArgs args);
-        public event PropertyChangedHandler PropertyChange;
+        public event PropertyChangedHandler? PropertyChange;
 
         public void OnPropertyChange(object sender, PropertyChangeEventArgs args) {
             //if there exist any subscribers call the event 
@@ -17,7 +17,7 @@ namespace EventsNameCustom
             }
         }
 
-        public string Name {get;set;}
+        public string? Name {get;set;}
         private int _salary = 5000;
         public int Salary {
             get { return _salary; }

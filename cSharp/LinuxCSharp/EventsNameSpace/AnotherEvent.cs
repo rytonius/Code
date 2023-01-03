@@ -9,7 +9,7 @@ namespace AnotherEvent
 {
 
     internal class Button {
-        public event EventHandler<MyCustomArguments> ClickEvent;
+        public event EventHandler<MyCustomArguments>? ClickEvent;
         public void OnClick() {
             MyCustomArguments myArgs = new MyCustomArguments();
             myArgs.Name = "What";
@@ -18,7 +18,7 @@ namespace AnotherEvent
     }
 
     public class MyCustomArguments: EventArgs {
-        public string Name {get; set;}
+        public string? Name {get; set;}
     }
     
     public class DoIt
