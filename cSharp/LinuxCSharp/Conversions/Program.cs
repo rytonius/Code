@@ -1,4 +1,4 @@
-﻿
+﻿using static System.Console;
 class Person
 {
     public string Name;
@@ -42,12 +42,10 @@ class Program
 
         WriteLine("\nIsAsOperator\n");
         Conversions.IsAsOperator IAO = new Conversions.IsAsOperator();
-
+        WriteLine("hi");
         IAO.Main();
+        
     }
 
-    private static void WriteLine(string v)
-    {
-        Console.WriteLine(v);
-    }
+
 }
