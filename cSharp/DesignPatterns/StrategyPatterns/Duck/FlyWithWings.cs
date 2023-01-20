@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
-namespace DesignPatterns.Duck
+using Duck.Interfaces;
+namespace Duck
 {
     public class FlyWithWings : IFlyBehavior
     {
-        public void fly()
+        public void Fly()
         {
             Console.WriteLine("I'm flying");
         }

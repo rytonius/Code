@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DesignPatterns.Duck
+namespace Duck.Interfaces
 {
     public interface IFlyBehavior
     {
-        public void fly();
+        public void Fly();
     }
 }

@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DesignPatterns.Duck
+namespace Duck.Prefabs
 {
-    public class MallardDuck : Duck
+    public class ModelDuck : Duck
     {
-        public MallardDuck()
+        public ModelDuck() 
         {
+            flyBehavior = new NoWingsNoFly();
             quackBehavior = new Quack();
-            flyBehavior = new FlyWithWings();
         }
-
         public override void display()
         {
-            Console.WriteLine("I'm a Mallard Duck");
+            Console.WriteLine("\n\"I'm a Super Model Duck\"");
         }
     }
 }

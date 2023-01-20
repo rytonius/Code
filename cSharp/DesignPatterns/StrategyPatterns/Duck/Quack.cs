@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using static System.Console;
+using Duck.Interfaces;
 
-namespace DesignPatterns.Duck
+
+
+namespace Duck
 {
     public class Quack : IQuackBehavior
     {
         public void quack() {
-            WriteLine("Quack");
+            WriteLine("'Quack'");
         }
     }
 }
