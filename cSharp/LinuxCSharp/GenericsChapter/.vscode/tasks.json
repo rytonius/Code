@@ -10,6 +10,7 @@
                 "${workspaceFolder}/GenericsChapter.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
+                
             ],
             "problemMatcher": "$msCompile"
         },
