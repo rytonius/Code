@@ -9,3 +9,5 @@ Console.WriteLine("\nGenericsChapter.GenericStructs.Main()");
 GenericsChapter.GenericStructs.Main();
 Console.WriteLine("\nGenericsChapter.GenericDelegate.Main()");
 GenericsChapter.GenericDelegate.Main();
+Console.WriteLine("\nGenericsChapter.AnotherGenericDelegateExample.Main()");
+GenericsChapter.AnotherGenericDelegateExample.Main();
