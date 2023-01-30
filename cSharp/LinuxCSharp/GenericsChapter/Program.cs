@@ -11,3 +11,8 @@ Console.WriteLine("\nGenericsChapter.GenericDelegate.Main()");
 GenericsChapter.GenericDelegate.Main();
 Console.WriteLine("\nGenericsChapter.AnotherGenericDelegateExample.Main()");
 GenericsChapter.AnotherGenericDelegateExample.Main();
+Console.WriteLine("\nGenericsChapter.GenericInterface.Main()");
+GenericsChapter.GenericInterface.Main();
+Console.WriteLine("\nGenericsChapter.AnotherGenericInterface.Main()");
+GenericsChapter.AnotherGenericInterface.Main();
+ 
