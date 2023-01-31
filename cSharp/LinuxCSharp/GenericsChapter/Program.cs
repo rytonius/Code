@@ -15,4 +15,5 @@ Console.WriteLine("\nGenericsChapter.GenericInterface.Main()");
 GenericsChapter.GenericInterface.Main();
 Console.WriteLine("\nGenericsChapter.AnotherGenericInterface.Main()");
 GenericsChapter.AnotherGenericInterface.Main();
- 
+Console.WriteLine("\nGenericsChapter.FactoryDog.Main()");
+GenericsChapter.FactoryDog.Main();

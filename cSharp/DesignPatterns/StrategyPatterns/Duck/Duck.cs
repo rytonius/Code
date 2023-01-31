@@ -13,6 +13,8 @@ namespace Duck
         public IQuackBehavior? quackBehavior;
         public abstract void display();
 
+        public Duck() {}
+
         //static methods on new
         public void performFly() {
             if (flyBehavior is not null)
