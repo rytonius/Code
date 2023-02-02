@@ -25,7 +25,7 @@ namespace GenericsChapter
 
         public static void Main( )
         {
-            FactoryOut<Dog>    dogMaker    = MakeDog;
+            FactoryOut<Dog>    dogMaker       = MakeDog;
             FactoryOut<Animal> animalMaker    = dogMaker;
 
             Action1<Animal> act1 = ActOnAnimal;

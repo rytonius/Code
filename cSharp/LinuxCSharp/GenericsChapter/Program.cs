@@ -17,3 +17,5 @@ Console.WriteLine("\nGenericsChapter.AnotherGenericInterface.Main()");
 GenericsChapter.AnotherGenericInterface.Main();
 Console.WriteLine("\nGenericsChapter.FactoryDog.Main()");
 GenericsChapter.FactoryDog.Main();
+Console.WriteLine("\nGenericsChapter.CovarianceInterface.Main()");
+GenericsChapter.CovarianceInterface.Main();
