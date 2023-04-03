@@ -1,0 +1,21 @@
+﻿// See https://aka.ms/new-console-template for more information
+Console.WriteLine("\nGenericsChapter.StackExample.Main()");
+GenericsChapter.StackExample.Main();
+Console.WriteLine("\nGenericsChapter.ReverseAndPrint.Main()");
+GenericsChapter.ReverseAndPrint.Main();
+Console.WriteLine("\nGenericsChapter.ExtendHolderExample.Main()");
+GenericsChapter.ExtendHolderExample.Main();
+Console.WriteLine("\nGenericsChapter.GenericStructs.Main()");
+GenericsChapter.GenericStructs.Main();
+Console.WriteLine("\nGenericsChapter.GenericDelegate.Main()");
+GenericsChapter.GenericDelegate.Main();
+Console.WriteLine("\nGenericsChapter.AnotherGenericDelegateExample.Main()");
+GenericsChapter.AnotherGenericDelegateExample.Main();
+Console.WriteLine("\nGenericsChapter.GenericInterface.Main()");
+GenericsChapter.GenericInterface.Main();
+Console.WriteLine("\nGenericsChapter.AnotherGenericInterface.Main()");
+GenericsChapter.AnotherGenericInterface.Main();
+Console.WriteLine("\nGenericsChapter.FactoryDog.Main()");
+GenericsChapter.FactoryDog.Main();
+Console.WriteLine("\nGenericsChapter.CovarianceInterface.Main()");
+GenericsChapter.CovarianceInterface.Main();
