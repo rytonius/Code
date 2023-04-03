@@ -1,9 +1,7 @@
-// C program to insert a node in a BST
-// https://www.geeksforgeeks.org/tutorial-on-binary-search-tree/
 #include <stdio.h>
 #include <stdlib.h>
 
-// Given Node
+
 struct node {
     int key;
     struct node *left, *right;
