@@ -16,12 +16,9 @@ namespace FightClub.Models
 	{
 		public int Id { get; set; }
 
-		public string Name {
-			get; set;
-		}
+		public string Name { get; set; }
 
-
-		PrimaryStats primaryStats;
+        PrimaryStats primaryStats;
 		SecondaryStats secondaryStats;
 
 		public Player(int ID, string NAME)
@@ -30,22 +27,23 @@ namespace FightClub.Models
 			Name = NAME;
 			primaryStats = new PrimaryStats()
 			{
-				Endurance = 1,
-				Strength = 1,
-				Agility = 1,
-				Wisdom = 1
-			};
-			secondaryStats = new SecondaryStats() 
+				Endurance = 8,
+				Strength = 8,
+				Agility = 8,
+				Wisdom = 8,
+                Gold = 10,
+                Level = 1,
+                ExperiencePoints = 0,
+            };
+			secondaryStats = new SecondaryStats()
 			{
-				HealthPoints = 100,
+				HealthPoints = 10 * primaryStats.Endurance,
 				StaminaPoints = 100,
-				ExperiencePoints = 0,
 				Attack = 10,
 				Defense = 10,
 				Dodge = 10,
-				CritChance = 10,
-				Gold = 10,
-				Level = 1
+				CritChance = 10
+
 			};
 
 		}

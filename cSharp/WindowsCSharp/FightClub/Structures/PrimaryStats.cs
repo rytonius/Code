@@ -13,7 +13,9 @@ namespace FightClub.Structures
 		public int Agility;
 		public int Endurance;
 		public int Wisdom;
-		
-		
-	}
+        public int Level;
+        public int Gold;
+        public int ExperiencePoints;
+
+    }
 }

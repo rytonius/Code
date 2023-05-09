@@ -1,0 +1,31 @@
+[
+  {
+    "ID": "0",
+    "Name": "Slime",
+    "PrimaryStats": {
+      "Strength": 4,
+      "Agility": 5,
+      "Endurance": 6,
+      "Wisdom": 3,
+      "Level": 1,
+      "Gold": 10,
+      "ExperiencePoints": 15
+
+    }
+  },
+
+  {
+    "ID": "1",
+    "Name": "Rat",
+    "PrimaryStats": {
+      "Strength": 2,
+      "Agility": 5,
+      "Endurance": 3,
+      "Wisdom": 3,
+      "Gold": 10,
+      "Level": 2,
+      "ExperiencePoints": 20
+
+    }
+  }
+]
